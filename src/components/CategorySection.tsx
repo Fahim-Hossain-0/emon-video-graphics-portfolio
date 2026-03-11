@@ -14,13 +14,13 @@ const CategorySection = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="categories" className="py-32 px-4 relative">
+    <section id="categories" className="pb-32 pt-28 px-4 relative">
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-end))" }} />
 
       <div ref={ref} className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Design <span className="gradient-text">Categories</span>
+            MY <span className="gradient-text">WORK'S</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Explore the different areas of my creative expertise

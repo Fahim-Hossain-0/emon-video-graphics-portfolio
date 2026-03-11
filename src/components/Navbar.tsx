@@ -33,7 +33,7 @@ const Navbar = () => {
         <Link to="/"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
          className="font-display text-xl font-bold gradient-text">
-          <img className="w-5" src={logo} alt="Logo" />
+          <img className="w-16" src={logo} alt="Logo" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

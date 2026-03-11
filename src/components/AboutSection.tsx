@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
+import hero from "../assets/hero.png";
 const AboutSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 px-4 relative overflow-hidden">
+    <section id="about" className="py-36 px-4 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-start))" }} />
 
       <div ref={ref} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -20,7 +20,7 @@ const AboutSection = () => {
             <div className="w-full h-full bg-muted flex items-center justify-center">
               <div className="text-center p-8">
                 <div className="w-32 h-32 mx-auto rounded-full gradient-bg opacity-50 animate-float" />
-                <p className="mt-6 text-muted-foreground text-sm">Profile Photo</p>
+                <img src={hero} alt="Profile Photo" />
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ const software = [
   { name: "Photoshop", color: "31A8FF" },
   { name: "Illustrator", color: "FF9A00" },
   { name: "Premiere Pro", color: "9999FF" },
-  { name: "CapCut", color: "00E5FF" },
+  { name: "Adobe", color: "B54B83"},
   { name: "Figma", color: "A259FF" },
 ];
 
@@ -16,17 +16,8 @@ const SoftwareSection = () => {
   const duplicated = [...software, ...software];
 
   return (
-    <section className="pb-32 pt-28 px-4 relative overflow-hidden">
-      <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Mastering <span className="gradient-text">Software</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
-            Tools I use to bring creative visions to reality
-          </p>
-        </motion.div>
-      </div>
+    <section className="py-28 px-4 relative overflow-hidden">
+      
 
       {/* Infinite sliding logos */}
       <div className="relative">
