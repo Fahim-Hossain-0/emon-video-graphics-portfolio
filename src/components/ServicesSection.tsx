@@ -6,7 +6,7 @@ const services = [
   { icon: Palette, title: "Graphic Design", desc: "Brand identities, logos, and visual systems that make your brand unforgettable." },
   { icon: Video, title: "Video Editing", desc: "Cinematic edits, color grading, and seamless transitions for impactful storytelling." },
   { icon: Layers, title: "Motion Graphics", desc: "Dynamic animations and visual effects that bring static designs to life." },
-  { icon: Sparkles, title: "Social Media Design", desc: "Scroll-stopping content designed to boost engagement and grow your audience." },
+  // { icon: Sparkles, title: "Social Media Design", desc: "Scroll-stopping content designed to boost engagement and grow your audience." },
 ];
 
 const ServicesSection = () => {
@@ -17,7 +17,7 @@ const ServicesSection = () => {
     <section id="services" className="py-32 px-4 relative">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-mid))" }} />
 
-      <div ref={ref} className="max-w-6xl mx-auto">
+      <div ref={ref} className=" max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -31,7 +31,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center ">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -39,7 +39,7 @@ const ServicesSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="glass-card gradient-border p-8 group cursor-pointer"
+              className=" glass-card gradient-border p-8 group cursor-pointer"
             >
               <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:gradient-glow transition-shadow">
                 <service.icon className="w-7 h-7 text-primary-foreground" />

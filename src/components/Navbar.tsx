@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 const links = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
@@ -29,9 +30,11 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#" className="font-display text-xl font-bold gradient-text">
-          Studio.
-        </a>
+        <Link to="/"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+         className="font-display text-xl font-bold gradient-text">
+          <img className="w-5" src={logo} alt="Logo" />
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (

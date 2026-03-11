@@ -16,7 +16,7 @@ const SoftwareSection = () => {
   const duplicated = [...software, ...software];
 
   return (
-    <section className="py-32 px-4 relative overflow-hidden">
+    <section className="pb-32 pt-28 px-4 relative overflow-hidden">
       <div ref={ref} className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
@@ -33,7 +33,7 @@ const SoftwareSection = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-        <div className="flex" style={{ animation: "slide-logos 20s linear infinite" }}>
+        <div className="flex w-max" style={{ animation: "slide-logos 20s linear infinite " }}>
           {duplicated.map((sw, i) => (
             <div
               key={`${sw.name}-${i}`}
