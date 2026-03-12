@@ -19,9 +19,16 @@ const AboutSection = () => {
           <div className="relative aspect-square rounded-2xl overflow-hidden gradient-border">
             <div className="w-full h-full bg-muted flex items-center justify-center">
               <div className="text-center p-8">
-                <div className="w-32 h-32 mx-auto rounded-full gradient-bg opacity-50 animate-float" />
-                <img src={hero} alt="Profile Photo" />
-              </div>
+                
+
+    {/* Profile Image */}
+    <img
+      src={hero}
+      alt="Profile Photo"
+      className="w-[80%] ml-12"
+    />
+
+  </div>
             </div>
           </div>
         </motion.div>

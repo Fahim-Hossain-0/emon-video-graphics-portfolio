@@ -7,6 +7,11 @@ const software = [
   { name: "Premiere Pro", color: "9999FF" },
   { name: "Adobe", color: "B54B83"},
   { name: "Figma", color: "A259FF" },
+  { name: "Photoshop", color: "31A8FF" },
+  { name: "Illustrator", color: "FF9A00" },
+  { name: "Premiere Pro", color: "9999FF" },
+  { name: "Adobe", color: "B54B83"},
+  { name: "Figma", color: "A259FF" },
 ];
 
 const SoftwareSection = () => {
@@ -24,7 +29,7 @@ const SoftwareSection = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-        <div className="flex w-max" style={{ animation: "slide-logos 20s linear infinite " }}>
+        <div className="flex w-max" style={{ animation: "slide-logos 20s linear infinite" }}>
           {duplicated.map((sw, i) => (
             <div
               key={`${sw.name}-${i}`}
