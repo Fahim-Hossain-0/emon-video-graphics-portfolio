@@ -10,7 +10,7 @@ import thumbnail5 from "../assets/394.jpg";
 import thumbnail6 from "../assets/39.jpg";
 
 import video1 from "../assets/video/Highlight_1.mp4";
-// import video2 from "../assets/video/Highlight_1.mp4";
+
 import video2 from "../assets/video/high-energy-fitness-racing-promo-video.mp4.mp4";
 import video3 from "../assets/video/WIN OVER A NARCISSIST.mp4";
 import video4 from "../assets/video/Lyric Video 4.mp4";

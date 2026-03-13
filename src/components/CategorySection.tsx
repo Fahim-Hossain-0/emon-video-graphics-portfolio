@@ -1,11 +1,45 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import logo from "../assets/39.jpg";
 
-const categories = [
-  { name: "Motion Graphics", items: ["Logo Animations", "Intro/Outro", "Kinetic Typography", "Product Showcase"] },
-  { name: "Mockup Design", items: ["Product Mockups", "App Mockups", "Branding Mockups", "Packaging Design"] },
-  { name: "Banner & Cover", items: ["YouTube Banners", "Facebook Covers", "LinkedIn Banners", "Web Banners"] },
-  { name: "Social Media", items: ["Instagram Posts", "Story Templates", "Carousel Designs", "Ad Creatives"] },
+type Item = {
+  title: string;
+  image: string;
+};
+
+type Category = {
+  name: string;
+  items: Item[];
+};
+
+const categories: Category[] = [
+  {
+    name: "Motion Graphics",
+    items: [
+      { title: "Motion 1", image: logo },
+      { title: "Motion 2", image: logo },
+      { title: "Motion 3", image: logo },
+      { title: "Motion 4", image: logo },
+    ],
+  },
+  {
+    name: "Mockup Design",
+    items: [
+      { title: "Product Mockup", image: logo },
+      { title: "App Mockup", image: logo },
+      { title: "Brand Mockup", image: logo },
+      { title: "Packaging Mockup", image: logo },
+    ],
+  },
+  {
+    name: "Banner & Cover",
+    items: [
+      { title: "YouTube Banner", image: logo },
+      { title: "Facebook Cover", image: logo },
+      { title: "LinkedIn Banner", image: logo },
+      { title: "Web Banner", image: logo },
+    ],
+  },
 ];
 
 const CategorySection = () => {
@@ -15,19 +49,30 @@ const CategorySection = () => {
 
   return (
     <section id="categories" className="pb-32 pt-28 px-4 relative">
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-end))" }} />
+      
+      <div
+        className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]"
+        style={{ background: "hsl(var(--gradient-end))" }}
+      />
 
       <div ref={ref} className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="text-center mb-16">
+        
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-16"
+        >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             MY <span className="gradient-text">WORK'S</span>
           </h2>
+
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Explore the different areas of my creative expertise
           </p>
         </motion.div>
 
-        {/* Tab navigation */}
+        {/* Category Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -49,7 +94,7 @@ const CategorySection = () => {
           ))}
         </motion.div>
 
-        {/* Content grid */}
+        {/* Content Grid */}
         <motion.div
           key={active}
           initial={{ opacity: 0, scale: 0.95 }}
@@ -59,24 +104,34 @@ const CategorySection = () => {
         >
           {categories[active].items.map((item, i) => (
             <motion.div
-              key={item}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.05 }}
               className="aspect-square glass-card gradient-border flex items-center justify-center p-6 cursor-pointer group"
             >
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto rounded-xl bg-muted mb-4 flex items-center justify-center group-hover:gradient-bg transition-colors duration-300">
-                  <span className="text-2xl font-display font-bold gradient-text group-hover:text-primary-foreground">
-                    {item.charAt(0)}
-                  </span>
+
+                {/* Image */}
+                <div className="mx-auto rounded-xl bg-muted mb-4 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
-                <p className="font-display text-sm font-medium text-foreground">{item}</p>
+
+                {/* Title */}
+                <p className="font-display text-sm font-medium text-foreground">
+                  {item.title}
+                </p>
+
               </div>
             </motion.div>
           ))}
         </motion.div>
+
       </div>
     </section>
   );
