@@ -9,12 +9,6 @@ import thumbnail4 from "../assets/Thumbnail 2.jpg";
 import thumbnail5 from "../assets/394.jpg";
 import thumbnail6 from "../assets/39.jpg";
 
-import video1 from "../assets/video/Highlight_1.mp4";
-
-import video2 from "../assets/video/high-energy-fitness-racing-promo-video.mp4.mp4";
-import video3 from "../assets/video/WIN OVER A NARCISSIST.mp4";
-import video4 from "../assets/video/Lyric Video 4.mp4";
-
 const thumbnails = [
   { title: "Gaming Thumbnail", category: "YouTube", img: thumbnail1 },
   { title: "Tech Review", category: "YouTube", img: thumbnail2 },
@@ -25,10 +19,26 @@ const thumbnails = [
 ];
 
 const videoEdits = [
-  { title: "Brand Commercial", duration: "6:05", video: video1 },
-  { title: "Music Video Edit", duration: "1:15", video: video2 },
-  { title: "Product Launch", duration: "0:51", video: video3 },
-  { title: "Social Media Reel", duration: "3:24 ", video: video4 },
+  {
+    title: "Brand Commercial",
+    duration: "6:05",
+    videoId: "zosM4A8UhrA",
+  },
+  {
+    title: "Music Video Edit",
+    duration: "1:15",
+    videoId: "zosM4A8UhrA",
+  },
+  {
+    title: "Product Launch",
+    duration: "0:51",
+    videoId: "zosM4A8UhrA",
+  },
+  {
+    title: "Social Media Reel",
+    duration: "3:24",
+    videoId: "zosM4A8UhrA",
+  },
 ];
 
 const PortfolioSection = () => {
@@ -80,7 +90,7 @@ const PortfolioSection = () => {
                 onHoverStart={() => setHoveredThumb(i)}
                 onHoverEnd={() => setHoveredThumb(null)}
                 onClick={() => setSelectedImage(thumb.img)}
-                className="relative aspect-video glass-card overflow-hidden rounded-xl cursor-pointer group"
+                className="relative aspect-video overflow-hidden rounded-xl cursor-pointer group"
               >
                 <img
                   src={thumb.img}
@@ -115,7 +125,7 @@ const PortfolioSection = () => {
           </h2>
         </motion.div>
 
-        {/* VIDEO CARDS */}
+        {/* VIDEO GRID */}
         <div>
           <h3 className="font-display text-2xl font-semibold mt-20 mb-8 gradient-text">
             Video Editing
@@ -129,24 +139,20 @@ const PortfolioSection = () => {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.3 + i * 0.15 }}
                 whileHover={{ scale: 1.03 }}
-                onClick={() => setSelectedVideo(video.video)}
+                onClick={() =>
+                  setSelectedVideo(
+                    `https://www.youtube.com/embed/${video.videoId}`
+                  )
+                }
                 className="relative aspect-video overflow-hidden rounded-xl cursor-pointer group"
               >
-                {/* VIDEO PREVIEW */}
-                <video
-                  src={video.video}
-                  muted
-                  loop
-                  playsInline
+
+                {/* YOUTUBE THUMBNAIL */}
+                <img
+                  src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
                   className="absolute inset-0 w-full h-full object-cover"
-                  onMouseEnter={(e) => e.currentTarget.play()}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.pause();
-                    e.currentTarget.currentTime = 0;
-                  }}
                 />
 
-                {/* OVERLAY */}
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* PLAY BUTTON */}
@@ -189,13 +195,13 @@ const PortfolioSection = () => {
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
           onClick={() => setSelectedVideo(null)}
         >
-          <video
+          <iframe
             src={selectedVideo}
-            controls
-            autoPlay
-            className="max-w-[90%] max-h-[90%] rounded-xl"
+            className="w-[90%] h-[90%] rounded-xl"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
             onClick={(e) => e.stopPropagation()}
-          />
+          ></iframe>
         </div>
       )}
     </section>

@@ -2,8 +2,28 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import logo from "../assets/39.jpg";
 
+// brandIdentity
+import jc_Dark from "../assets/graphic/brand identity/JC Dark-01.png"
+import LOGO4 from "../assets/graphic/brand identity/LOGO4-01.png"
+import Red from "../assets/graphic/brand identity/Red-01-01.png"
+import SilverFoilLogoMockup from "../assets/graphic/brand identity/Silver-Foil-Logo-Mockup.jpg"
+import TriplyWorld from "../assets/graphic/brand identity/Triply World-01.jpg"
+import Untitled1 from "../assets/graphic/brand identity/Untitled-1-01-01.jpg"
+import Untitled2 from "../assets/graphic/brand identity/Untitled-3-01.jpg"
+import Untitled4 from "../assets/graphic/brand identity/Untitled-4-01.jpg"
+
+// social media design
+import team from "../assets/graphic/social media design/8.jpg"
+import Content from "../assets/graphic/social media design/Content 02.jpg"
+import DeadlyDozen from "../assets/graphic/social media design/Deadly Dozen.jpg"
+import Demo from "../assets/graphic/social media design/Demo.jpg"
+import MarriageAnniversary from "../assets/graphic/social media design/Marriage Anniversary.jpg"
+import Untitled5 from "../assets/graphic/social media design/Untitled-1 (2).jpg"
+import Untitled6 from "../assets/graphic/social media design/Untitled-2 (1).jpg"
+import Untitled7 from "../assets/graphic/social media design/Untitled-23.jpg"
+
+
 type Item = {
-  title: string;
   image: string;
 };
 
@@ -14,30 +34,38 @@ type Category = {
 
 const categories: Category[] = [
   {
-    name: "Motion Graphics",
+    name: "Brand Identity",
     items: [
-      { title: "Motion 1", image: logo },
-      { title: "Motion 2", image: logo },
-      { title: "Motion 3", image: logo },
-      { title: "Motion 4", image: logo },
+      {image:jc_Dark },
+      {image: LOGO4 },
+      {image: Red },
+      {image: SilverFoilLogoMockup },
+      {image: TriplyWorld },
+      {image: Untitled1 },
+      {image: Untitled2 },
+      {image: Untitled4 },
     ],
   },
   {
-    name: "Mockup Design",
+    name: "Social Media",
     items: [
-      { title: "Product Mockup", image: logo },
-      { title: "App Mockup", image: logo },
-      { title: "Brand Mockup", image: logo },
-      { title: "Packaging Mockup", image: logo },
+      { image: team },
+      { image: Content },
+      { image: DeadlyDozen },
+      { image: Demo },
+      { image: MarriageAnniversary },
+      { image: Untitled5 },
+      { image: Untitled6 },
+      { image: Untitled7 },
     ],
   },
   {
     name: "Banner & Cover",
     items: [
-      { title: "YouTube Banner", image: logo },
-      { title: "Facebook Cover", image: logo },
-      { title: "LinkedIn Banner", image: logo },
-      { title: "Web Banner", image: logo },
+      { image: logo },
+      { image: logo },
+      { image: logo },
+      { image: logo },
     ],
   },
 ];
@@ -64,7 +92,7 @@ const CategorySection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            MY <span className="gradient-text">WORK'S</span>
+             <span className="gradient-text">Graphic's Design </span>
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
@@ -117,15 +145,15 @@ const CategorySection = () => {
                 <div className="mx-auto rounded-xl bg-muted mb-4 flex items-center justify-center overflow-hidden">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={`Category ${active} Item ${i}`}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
 
                 {/* Title */}
-                <p className="font-display text-sm font-medium text-foreground">
+                {/* <p className="font-display text-sm font-medium text-foreground">
                   {item.title}
-                </p>
+                </p> */}
 
               </div>
             </motion.div>

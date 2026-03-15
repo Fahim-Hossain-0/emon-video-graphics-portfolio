@@ -38,7 +38,9 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body">
+            
+            <a key={l.label} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
+            onClick={() => window.scrollTo({ top: 1, behavior: "smooth" })}>
               {l.label}
             </a>
           ))}
