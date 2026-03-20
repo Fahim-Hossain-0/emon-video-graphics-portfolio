@@ -22,6 +22,11 @@ import Untitled5 from "../assets/graphic/social media design/Untitled-1 (2).jpg"
 import Untitled6 from "../assets/graphic/social media design/Untitled-2 (1).jpg"
 import Untitled7 from "../assets/graphic/social media design/Untitled-23.jpg"
 
+// Banner & Cover
+// ---------
+
+// thumbnail design
+
 
 type Item = {
   image: string;
@@ -61,6 +66,15 @@ const categories: Category[] = [
   },
   {
     name: "Banner & Cover",
+    items: [
+      { image: logo },
+      { image: logo },
+      { image: logo },
+      { image: logo },
+    ],
+  },
+  {
+    name: "Thumbnail Design",
     items: [
       { image: logo },
       { image: logo },

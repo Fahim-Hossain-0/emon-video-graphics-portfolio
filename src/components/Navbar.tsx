@@ -39,14 +39,14 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             
-            <a key={l.label} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-body"
+            <a key={l.label} href={l.href} className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors font-body"
             onClick={() => window.scrollTo({ top: 1, behavior: "smooth" })}>
               {l.label}
             </a>
           ))}
-          <a href="mailto:hello@designer.com" className="gradient-bg px-5 py-2 rounded-full text-sm font-display font-semibold text-primary-foreground">
+          {/* <a href="mailto:hello@designer.com" className="gradient-bg px-5 py-2 rounded-full text-sm font-display font-semibold text-primary-foreground">
             Hire Me
-          </a>
+          </a> */}
         </div>
 
         <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-foreground">
