@@ -14,7 +14,7 @@ const ServicesSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-28 px-4 relative">
+    <section id="services" className="pb-28 pt-24 px-4 relative">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-mid))" }} />
 
       <div ref={ref} className=" max-w-6xl mx-auto">

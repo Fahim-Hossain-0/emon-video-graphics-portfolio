@@ -53,9 +53,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 2.6 }}
           style={{ zIndex: 10 }}
         >
-          <Button variant="neon" size="xl">
+          {/* <Button variant="neon" size="xl">
             Explore My Work
-          </Button>
+          </Button> */}
         </motion.div>
 
         {/* Scroll indicator */}
