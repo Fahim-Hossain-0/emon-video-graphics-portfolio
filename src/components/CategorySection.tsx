@@ -1,6 +1,8 @@
+
+
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import logo from "../assets/39.jpg";
+// import logo from "../assets/39.jpg";
 
 // brand Identity
 import jc_Dark from "../assets/graphic/brand_identity/JC_Dark-01.png";
@@ -81,11 +83,12 @@ const categories: Category[] = [
       {image:jc_Dark },
       {image: LOGO4 },
       {image: red },
-      {image: Mockup },
+     
       {image: Triply_World },
       {image: Untitled1 },
       {image: Untitled2 },
       {image: Untitled3 },
+       {image: Mockup },
     ],
   },
   {
@@ -93,22 +96,32 @@ const categories: Category[] = [
     items: [
       { image: img2 },
       { image: Cricket },
-      { image: Deadly },
-      { image: Demo },
+      
+      
       { image: Dress },
       { image: Podcast },
-      { image: test_work },
+      // { image: test_work },
+      { image: Deadly },
+      { image: Demo },
     ],
   },
+
+  // 
   {
     name: "Banner & Cover",
     items: [
-      { image: banner1 },
+      
       { image: banner },
-      { image: COVER },
+        { image: You_Tube_Banner },
+        { image: Untitled01 },
       { image: Deadly_Dozen },
-      { image: Untitled01 },
+      
+    
+      { image: COVER },
+     
       { image: Untitled02 },
+      { image: banner1 },
+      { image: Linked_In_banner },
     ],
   },
   
@@ -211,7 +224,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 last:col-span-1"
         >
           {categories[active].items.map((item, i) => (
             <motion.div
@@ -220,11 +233,11 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className=" aspect-square glass-card  flex items-center justify-center p-6 cursor-pointer group"
+              className="flex justify-center items-center cursor-pointer "
                 
   onClick={() => setSelectedImage(item.image)}
             >
-              <div className="relative w-full h-full">
+              <div className="relative ">
   
   {/* Loader */}
   {loadingImages[item.image] !== false && (
@@ -268,7 +281,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
       {/* Close Button */}
       <button
         onClick={() => setSelectedImage(null)}
-        className="absolute top-2 right-2 md:top-4 md:right-4 bg-black/60 hover:bg-black text-white rounded-full w-10 h-10 flex items-center justify-center text-xl transition"
+        className="absolute top-1 right-4 md:top-4 md:right-4 bg-black/60 hover:bg-black text-white rounded-full w-10 h-10 flex items-center justify-center text-xl transition"
       >
         ✕
       </button>
