@@ -163,7 +163,7 @@ const categories: Category[] = [
   },
 ];
 
-const CategorySection = () => {
+const GraphicDesignSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [active, setActive] = useState(0);
@@ -171,7 +171,7 @@ const CategorySection = () => {
 const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({});
 
   return (
-    <section id="categories" className="pb-32 pt-28 px-4 relative">
+    <section id="GraphicDesignSection" className="pb-32 pt-24 px-4 relative scroll-mt-20">
       
       <div
         className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]"
@@ -201,7 +201,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-4 mb-20"
         >
           {categories.map((cat, i) => (
             <button
@@ -224,7 +224,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4 last:col-span-1"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 last:col-span-1"
         >
           {categories[active].items.map((item, i) => (
             <motion.div
@@ -233,7 +233,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="flex justify-center items-center cursor-pointer "
+              className="flex items-center justify-center cursor-pointer "
                 
   onClick={() => setSelectedImage(item.image)}
             >
@@ -298,4 +298,4 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
   );
 };
 
-export default CategorySection;
+export default GraphicDesignSection;

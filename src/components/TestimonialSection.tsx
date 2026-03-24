@@ -28,7 +28,7 @@ const TestimonialSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 px-4 relative">
+    <section className="pb-32 mt-20 px-4 relative">
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]" style={{ background: "hsl(var(--gradient-mid))" }} />
 
       <div ref={ref} className="max-w-6xl mx-auto">

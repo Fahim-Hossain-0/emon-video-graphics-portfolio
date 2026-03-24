@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const line1 = "Crafting Stories.";
-const line2 = "Designing Experiences.";
+const line1 = "Crafting Stories";
+const line2 = "Designing Experiences";
 
 function GlowingLetter({ char, index, delay }: { char: string; index: number; delay: number }) {
   const [hovered, setHovered] = useState(false);
@@ -33,12 +33,12 @@ export default function HeroTypography() {
   return (
     <div className="text-center relative" style={{ zIndex: 10 }}>
       <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-tight tracking-tight text-foreground">
-        <div className="mb-2">
+        <div className="mb-2 text-[110px]">
           {line1.split("").map((char, i) => (
             <GlowingLetter key={i} char={char} index={i} delay={0.3} />
           ))}
         </div>
-        <div className="text-glow-cyan">
+        <div className="text-glow-cyan text-[110px]">
           {line2.split("").map((char, i) => (
             <GlowingLetter key={i} char={char} index={i} delay={0.9} />
           ))}

@@ -46,13 +46,13 @@ const Footer = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            MrVisualVibes
+            mrvisualvibes
           </motion.h2>
 
           {/* Animated signature underline */}
           <motion.svg
-            viewBox="0 0 400 50"
-            className="w-[80%] mx-auto mt-2"
+            viewBox="0 0 361 50"
+            className="w-[100%] mx-auto mt-2"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -134,7 +134,7 @@ const Footer = () => {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 text-sm text-muted-foreground">
-          <p>© 2026 MrVisualVibes. All rights reserved.</p>
+          <p>© 2026 mrvisualvibes. All rights reserved.</p>
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2 hover:text-foreground transition-colors"

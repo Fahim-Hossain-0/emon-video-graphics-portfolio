@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logos/Logo.png";
 const links = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Categories", href: "#categories" },
-  { label: "Work", href: "#work" },
+  { label: "Graphic Design", href: "#GraphicDesignSection" },
+  { label: "Editing", href: "#EditingSection" },
+  { label: "FAQ", href: "#faqSection" },
 ];
 
 const Navbar = () => {
@@ -29,11 +30,11 @@ const Navbar = () => {
         scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
         <Link to="/"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
          className="font-display text-xl font-bold gradient-text">
-          <img className="w-16" src={logo} alt="Logo" />
+          <img className="w-14" src={logo} alt="Logo" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import hero from "../assets/hero.png";
+import hero from "../assets/banner/hero.png";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="pt-20 px-4 relative overflow-hidden">
+    <section id="about" className="pt-24 px-4 relative overflow-hidden scroll-mt-0">
       <div
         className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full opacity-10 blur-[120px]"
         style={{ background: "hsl(var(--gradient-start))" }}
