@@ -224,7 +224,7 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 last:col-span-1"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4"
         >
           {categories[active].items.map((item, i) => (
             <motion.div
