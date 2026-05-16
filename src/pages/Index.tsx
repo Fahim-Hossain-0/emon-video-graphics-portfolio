@@ -9,20 +9,22 @@ import SoftwareSection from "@/components/SoftwareSection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import EditingSection from "@/components/EditingSection";
+import ShowWork from "@/components/ShowWork";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
+      {/* <Navbar /> */}
+      {/* <HeroSection /> */}
       <AboutSection />
-      <SoftwareSection />
-      <ServicesSection />
-      <GraphicDesignSection />
-      <EditingSection></EditingSection>
-      <PortfolioSection />
-      <TestimonialSection />
-      <FaqSection />
+      <ShowWork></ShowWork>
+      {/* <SoftwareSection /> */}
+      {/* <ServicesSection /> */}
+      {/* <GraphicDesignSection /> */}
+      {/* <EditingSection></EditingSection> */}
+      {/* <PortfolioSection /> */}
+      {/* <TestimonialSection /> */}
+      {/* <FaqSection /> */}
       <Footer />
     </div>
   );

@@ -69,109 +69,108 @@ import imges7 from "../assets/graphic/printing_design/I need You Now (3000px).jp
 
 type Item = {
   image: string;
+  tags: string[];
 };
 
-type Category = {
-  name: string;
-  items: Item[];
-};
+const tagsList = [
+  "brand-identity",
+  "social-media",
+  "banner-cover",
+  "packaging-design",
+  "thumbnail-design",
+  "printing-design",
+];
 
-const categories: Category[] = [
-  {
-    name: "Brand Identity",
-    items: [
-      {image:jc_Dark },
-      {image: LOGO4 },
-      {image: red },
-     
-      {image: Triply_World },
-      {image: Untitled1 },
-      {image: Untitled2 },
-      {image: Untitled3 },
-       {image: Mockup },
-    ],
-  },
-  {
-    name: "Social Media",
-    items: [
-      { image: img2 },
-      { image: Cricket },
-      
-      
-      { image: Dress },
-      { image: Podcast },
-      // { image: test_work },
-      { image: Deadly },
-      { image: Demo },
-    ],
-  },
+const items: Item[] = [
+  { image: jc_Dark, tags: ["brand-identity"] },
+  { image: LOGO4, tags: ["brand-identity"] },
+  { image: red, tags: ["brand-identity"] },
+  { image: Triply_World, tags: ["brand-identity"] },
+  { image: Untitled1, tags: ["brand-identity"] },
+  { image: Untitled2, tags: ["brand-identity"] },
+  { image: Untitled3, tags: ["brand-identity"] },
+  { image: Mockup, tags: ["brand-identity"] },
 
-  // 
-  {
-    name: "Banner & Cover",
-    items: [
-      
-      { image: banner },
-        { image: You_Tube_Banner },
-        { image: Untitled01 },
-      { image: Deadly_Dozen },
-      
-    
-      { image: COVER },
-     
-      { image: Untitled02 },
-      { image: banner1 },
-      { image: Linked_In_banner },
-    ],
-  },
-  
-  {
-    name: "Packaging design ",
-    items: [
-      { image: imge1 },
-      { image: imge2 },
-      { image: imge3 },
-      { image: Back_Part },
-      { image: Mockup0 },
-      { image: box_design }
-    ],
-  },
-  {
-    name: "Thumbnail design",
-    items: [
-      { image: img394 },
-      { image: img3945 },
-      { image: img3948   },
-      { image: img3946 },
-      { image:  img3947 },
-      { image:  Thumbnail },
-      { image:  Untitled001 },
-      { image:  img39 },
-    ],
-  },
-  {
-    name: "Printing design",
-    items: [
-      { image: imges1 },
-      { image: imges2 },
-      { image: imges3 },
-      { image: imges4 },
-      { image:  imges5 },
-      { image:  imges6 },
-      { image:  imges7}
-    ],
-  },
+  { image: img2, tags: ["social-media"] },
+  { image: Cricket, tags: ["social-media"] },
+  { image: Dress, tags: ["social-media"] },
+  { image: Podcast, tags: ["social-media"] },
+  { image: Deadly, tags: ["social-media"] },
+  { image: Demo, tags: ["social-media"] },
+
+  { image: banner, tags: ["banner-cover"] },
+  { image: You_Tube_Banner, tags: ["banner-cover"] },
+  { image: Untitled01, tags: ["banner-cover"] },
+  { image: Deadly_Dozen, tags: ["banner-cover"] },
+  { image: COVER, tags: ["banner-cover"] },
+  { image: Untitled02, tags: ["banner-cover"] },
+  { image: banner1, tags: ["banner-cover"] },
+  { image: Linked_In_banner, tags: ["banner-cover"] },
+
+  { image: imge1, tags: ["packaging-design"] },
+  { image: imge2, tags: ["packaging-design"] },
+  { image: imge3, tags: ["packaging-design"] },
+  { image: Back_Part, tags: ["packaging-design"] },
+  { image: Mockup0, tags: ["packaging-design"] },
+  { image: box_design, tags: ["packaging-design"] },
+
+  { image: img394, tags: ["thumbnail-design"] },
+  { image: img3945, tags: ["thumbnail-design"] },
+  { image: img3948, tags: ["thumbnail-design"] },
+  { image: img3946, tags: ["thumbnail-design"] },
+  { image: img3947, tags: ["thumbnail-design"] },
+  { image: Thumbnail, tags: ["thumbnail-design"] },
+  { image: Untitled001, tags: ["thumbnail-design"] },
+  { image: img39, tags: ["thumbnail-design"] },
+
+  { image: imges1, tags: ["printing-design"] },
+  { image: imges2, tags: ["printing-design"] },
+  { image: imges3, tags: ["printing-design"] },
+  { image: imges4, tags: ["printing-design"] },
+  { image: imges5, tags: ["printing-design"] },
+  { image: imges6, tags: ["printing-design"] },
+  { image: imges7, tags: ["printing-design"] },
 ];
 
 const GraphicDesignSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [active, setActive] = useState(0);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({});
+  const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({});
+  const [selectedTags, setSelectedTags] = useState<string[]>(["all"]);
+
+const tagLabels: Record<string, string> = {
+  "all": "All",
+  "brand-identity": "Brand Identity",
+  "social-media": "Social Media",
+  "banner-cover": "Banner & Cover",
+  "packaging-design": "Packaging Design",
+  "thumbnail-design": "Thumbnail Design",
+  "printing-design": "Printing Design",
+};
+
+const handleTagChange = (tag: string) => {
+  if (tag === "all") {
+    setSelectedTags(["all"]);
+  } else {
+    let newTags = selectedTags.filter(t => t !== "all");
+    if (newTags.includes(tag)) {
+      newTags = newTags.filter(t => t !== tag);
+      setSelectedTags(newTags.length > 0 ? newTags : ["all"]);
+    } else {
+      newTags.push(tag);
+      setSelectedTags(newTags);
+    }
+  }
+};
+
+const filteredItems = items.filter(item => {
+  if (selectedTags.includes("all")) return true;
+  return item.tags.some(tag => selectedTags.includes(tag));
+});
 
   return (
-    <section id="GraphicDesignSection" className="pb-32 pt-24 px-4 relative scroll-mt-20">
+    <section id="GraphicDesignSection" className="pb-32 pt-24 px-4 relative scroll-mt-4">
       
       <div
         className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[150px]"
@@ -196,70 +195,85 @@ const [loadingImages, setLoadingImages] = useState<{ [key: string]: boolean }>({
           </p>
         </motion.div>
 
-        {/* Category Tabs */}
+        {/* Filter Tags */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 mb-20"
         >
-          {categories.map((cat, i) => (
-            <button
-              key={cat.name}
-              onClick={() => setActive(i)}
-              className={`px-6 py-3 rounded-full font-display font-medium text-sm transition-all ${
-                active === i
-                  ? "gradient-bg text-primary-foreground gradient-glow"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {cat.name}
-            </button>
+          <label className="tag-button relative cursor-pointer">
+            <input
+              type="checkbox"
+              id="all"
+              checked={selectedTags.includes("all")}
+              onChange={() => handleTagChange("all")}
+            />
+            <span className="checked">{tagLabels["all"]}</span>
+            <span>{tagLabels["all"]}</span>
+          </label>
+          {tagsList.map(tag => (
+            <label key={tag} className="tag-button relative cursor-pointer">
+              <input
+                type="checkbox"
+                id={tag}
+                checked={selectedTags.includes(tag)}
+                onChange={() => handleTagChange(tag)}
+              />
+              <span className="checked">{tagLabels[tag]}</span>
+              <span>{tagLabels[tag]}</span>
+            </label>
           ))}
         </motion.div>
 
         {/* Content Grid */}
         <motion.div
-          key={active}
+          key={selectedTags.join("-")}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
           className="grid grid-cols-2 md:grid-cols-3 gap-4"
         >
-          {categories[active].items.map((item, i) => (
+          {filteredItems.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.05 }}
-              className="flex items-center justify-center cursor-pointer "
-                
-  onClick={() => setSelectedImage(item.image)}
+              className="flex items-center justify-center cursor-pointer"
+              onClick={() => setSelectedImage(item.image)}
             >
-              <div className="relative ">
-  
-  {/* Loader */}
-  {loadingImages[item.image] !== false && (
-    <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-xl">
-      <div className="w-6 h-6 border-2 border-gray-300 border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  )}
+              <div className="relative w-full h-full">
 
-  <img
-    src={item.image}
-    alt={`Category ${active} Item ${i}`}
-    onLoad={() =>
-      setLoadingImages((prev) => ({ ...prev, [item.image]: false }))
-    }
-    className={`w-full h-full object-cover rounded-xl transition-opacity duration-300 ${
-      loadingImages[item.image] === false ? "opacity-100" : "opacity-0"
-    }`}
-  />
-</div>
+                {/* Loader */}
+                {loadingImages[item.image] !== false && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted rounded-xl">
+                    <div className="w-6 h-6 border-2 border-gray-300 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+
+                {/* Image */}
+                <img
+                  src={item.image}
+                  alt={`item-${i}`}
+                  onLoad={() =>
+                    setLoadingImages((prev) => ({
+                      ...prev,
+                      [item.image]: false,
+                    }))
+                  }
+                  className={`w-full h-full object-cover rounded-xl transition-opacity duration-300 ${
+                    loadingImages[item.image] === false
+                      ? "opacity-100"
+                      : "opacity-0"
+                  }`}
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>
+
 
       </div>
 
