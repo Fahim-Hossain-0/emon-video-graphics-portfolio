@@ -10,12 +10,14 @@ import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import EditingSection from "@/components/EditingSection";
 import ShowWork from "@/components/ShowWork";
+import Banner from "@/components/Banner";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* <Navbar /> */}
       {/* <HeroSection /> */}
+      <Banner></Banner>
       <AboutSection />
       <ShowWork></ShowWork>
       {/* <SoftwareSection /> */}
