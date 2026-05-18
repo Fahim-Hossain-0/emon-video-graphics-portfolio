@@ -1,23 +1,13 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Instagram, 
-  ExternalLink, 
   Play, 
   Palette,
-  ArrowRight
+  ArrowRight,
+  Search
 } from "lucide-react";
 
 // --- Data ---
-
 const VIDEO_WORK = [
   {
     id: 1,
@@ -216,45 +206,74 @@ const DESIGN_WORK = [
   { id: 25, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
 ];
 
-// --- Components ---
+function getAspectRatio(category: string) {
+  const cat = category.toLowerCase();
+  if (cat.includes('reel') || cat.includes('story') || cat.includes('shorts')) return "aspect-[9/16]";
+  if (cat.includes('cinematic') || cat.includes('trailer') || cat.includes('commercial')) return "aspect-video";
+  return "aspect-square";
+}
+
+function GridLoader() {
+  return (
+    <div className="w-full py-32 flex flex-col items-center justify-center space-y-6">
+      <div className="relative w-64 h-1 bg-zinc-900 overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 bg-accent-red"
+          initial={{ x: "-100%" }}
+          animate={{ x: "100%" }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+      <div className="mono text-[10px] text-accent-red uppercase animate-pulse">
+        Initializing_Data_Stream...
+      </div>
+    </div>
+  );
+}
 
 function MasonryGrid({ items, isVideo = false }: { items: any[], isVideo?: boolean }) {
+  const handleItemClick = (url: string | undefined) => {
+    if (url) window.open(url, '_blank');
+  };
+
   return (
     <div className="container mx-auto px-6 py-12">
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <motion.div 
             key={item.id}
-            className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 rounded-2xl break-inside-avoid cursor-pointer"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -10 }}
+            className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 break-inside-avoid cursor-pointer"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.05 }}
+            whileHover={{ y: -5 }}
+            onClick={() => isVideo && handleItemClick(item.videoUrl)}
           >
-            <a
-  href={item.videoUrl}
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <img
-    src={item.thumbnail}
-    alt={item.title}
-    className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-  />
-</a>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.3em] mb-2">{item.category}</span>
-              <h3 className="text-white font-display text-2xl font-medium tracking-tight mb-4">{item.title}</h3>
-              <motion.div 
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-sm shadow-xl"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.15)" }}
-              >
-                {isVideo ? (
-                  <Play className="w-5 h-5 text-white fill-current" />
-                ) : (
-                  <ArrowRight className="w-5 h-5 text-white" />
-                )}
-              </motion.div>
+            <div className={`relative w-full overflow-hidden ${isVideo ? getAspectRatio(item.category) : 'aspect-auto'}`}>
+              <img 
+                src={item.thumbnail} 
+                alt={item.title}
+                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                referrerPolicy="no-referrer"
+              />
+              {/* Scanline effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-red/5 to-transparent h-20 w-full top-[-20%] group-hover:animate-[scanline_2s_linear_infinite] pointer-events-none opacity-0 group-hover:opacity-100" />
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+              <div className="flex justify-between items-end">
+                <div>
+                  <span className="text-[10px] mono text-accent-red uppercase tracking-[0.2em] mb-1 block">
+                    {item.category}
+                  </span>
+                  <h3 className="text-white font-bold text-xl uppercase tracking-tighter">
+                    {item.title}
+                  </h3>
+                </div>
+                <div className="w-10 h-10 border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-md">
+                  {isVideo ? <Play size={16} className="fill-white" /> : <Search size={16} />}
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}
@@ -265,61 +284,75 @@ function MasonryGrid({ items, isVideo = false }: { items: any[], isVideo?: boole
 
 export default function ShowWork() {
   const [activeTab, setActiveTab] = useState<'video' | 'design'>('video');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black overflow-x-hidden pt-28">
-      
-      
+    <section id="work" className="min-h-screen bg-[#050505] pt-32 pb-20 overflow-hidden relative">
+      <div className="container mx-auto px-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <div className="mono text-accent-red text-xs uppercase tracking-[0.4em] mb-4">
+              {" >> "}SELECTED_ASSETS_V2
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter serif leading-[0.8] mb-2">
+              The <span className="text-accent-red">Archive</span>
+            </h2>
+            <p className="text-gray-500 mono text-[10px] uppercase max-w-[300px] leading-relaxed">
+              A curated selection of high-end motion artifacts and visual identity systems.
+            </p>
+          </div>
 
-      {/* Section 2: Work Loop */}
-      <section className="min-h-screen flex flex-col justify-center border-t border-zinc-900">
-        <div className="container mx-auto px-6 mb-12 flex flex-col items-center">
-          <div className="flex gap-4 p-2 bg-zinc-900 border border-zinc-800 rounded-full shadow-2xl">
+          <div className="flex bg-[#0a0a0a] border border-[#222] p-1 self-start">
             <button 
               onClick={() => setActiveTab('video')}
-              className={`flex items-center gap-2 px-8 py-3 rounded-full transition-all duration-300 ${
+              className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
                 activeTab === 'video' 
-                  ? 'bg-white text-black shadow-lg scale-105' 
-                  : 'text-zinc-500 hover:text-white'
+                  ? 'bg-accent-red text-white' 
+                  : 'text-gray-500 hover:text-white'
               }`}
             >
-              <Play className={`w-4 h-4 ${activeTab === 'video' ? 'fill-current' : ''}`} />
-              <span className="font-bold text-sm uppercase tracking-wider">Video</span>
+              <Play size={12} className={activeTab === 'video' ? 'fill-current' : ''} />
+              Video
             </button>
             <button 
               onClick={() => setActiveTab('design')}
-              className={`flex items-center gap-2 px-8 py-3 rounded-full transition-all duration-300 ${
+              className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
                 activeTab === 'design' 
-                  ? 'bg-white text-black shadow-lg scale-105' 
-                  : 'text-zinc-500 hover:text-white'
+                  ? 'bg-accent-red text-white' 
+                  : 'text-gray-500 hover:text-white'
               }`}
             >
-              <Palette className={`w-4 h-4 ${activeTab === 'design' ? 'fill-current' : ''}`} />
-              <span className="font-bold text-sm uppercase tracking-wider">Design</span>
+              <Palette size={12} />
+              Design
             </button>
           </div>
-          
-          <motion.div 
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-12 text-center"
-          >
-            <h3 className="text-3xl sm:text-5xl font-light italic text-white/90">
-              {activeTab === 'video' ? "Featured Motion Works" : "Curated Visual Identity"}
-            </h3>
-            <p className="text-zinc-500 mt-4 font-mono text-xs uppercase tracking-[0.2em]">Scroll to explore collection</p>
-          </motion.div>
         </div>
+      </div>
 
-        <div className="relative">
-          <AnimatePresence mode="wait">
+      <div className="relative min-h-[400px]">
+        <AnimatePresence mode="wait">
+          {loading ? (
             <motion.div
-              key={activeTab}
+              key="loader"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+            >
+              <GridLoader />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
             >
               {activeTab === 'video' ? (
                 <MasonryGrid items={VIDEO_WORK} isVideo={true} />
@@ -327,26 +360,19 @@ export default function ShowWork() {
                 <MasonryGrid items={DESIGN_WORK} />
               )}
             </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="container mx-auto px-6 mt-12 flex justify-center">
-            <motion.div
-                className="flex items-center gap-2 group cursor-pointer"
-                whileHover={{ x: 10 }}
-            >
-                <span className="text-xs font-mono text-zinc-600 uppercase tracking-widest">Keep Exploring</span>
-                <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-white transition-colors" />
-            </motion.div>
-        </div>
-      </section>
-
-      {/* Decorative BG elements */}
-      <div className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-20 overflow-hidden">
-        <div className="absolute top-[20%] -left-[10%] w-[500px] h-[500px] bg-white/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] -right-[10%] w-[400px] h-[400px] bg-zinc-500/10 rounded-full blur-[100px]" />
+          )}
+        </AnimatePresence>
       </div>
 
-    </div>
+      <div className="container mx-auto px-6 mt-12 flex justify-center">
+        <motion.button
+          className="flex items-center gap-4 group px-8 py-4 border border-[#222] hover:border-accent-red transition-colors"
+          whileHover={{ x: 5 }}
+        >
+          <span className="text-[10px] mono text-gray-500 group-hover:text-white uppercase tracking-[0.3em]">Load Next Evidence</span>
+          <ArrowRight className="w-4 h-4 text-accent-red" />
+        </motion.button>
+      </div>
+    </section>
   );
 }

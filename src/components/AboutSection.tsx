@@ -1,26 +1,54 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "../assets/banner/hero.png"
+import { 
+  Instagram, 
+  Twitter, 
+  Linkedin, 
+  Mail, 
+  Globe, 
+  ShieldCheck, 
+  Cpu, 
+  Activity,
+  Terminal,
+  Fingerprint,
+  Layers,
+  Award
+} from "lucide-react";
+import bannerImg from "../assets/banner/hero.png"
 
 const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
+  const socialLinks = [
+    { icon: <Instagram size={14} />, label: "IG", url: "#" },
+    { icon: <Twitter size={14} />, label: "TW", url: "#" },
+    { icon: <Linkedin size={14} />, label: "LN", url: "#" },
+    { icon: <Mail size={14} />, label: "EM", url: "mailto:hello@mustafizur.com" },
+    { icon: <Globe size={14} />, label: "WEB", url: "#" },
+  ];
+
   return (
-    <section id="about" className="about-section scroll-mt-0">
+    <section id="about" className="about-section scroll-mt-0 bg-black">
       <div className="profiler-container" ref={ref}>
         {/* Left Col: Identity/Photo */}
         <motion.div 
-          className="col-identity"
+          className="col-identity relative overflow-hidden"
           initial={{ opacity: 0, x: -30 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <div className="profiler-module no-scan">
-            <div className="identity-name mono uppercase tracking-widest mb-4">Subject Profile: M. Rahman</div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03]">
+            <Fingerprint size={300} />
+          </div>
+          <div className="profiler-module no-scan relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <Fingerprint size={24} className="text-accent-red opacity-50" />
+              <div className="identity-name mono uppercase tracking-widest text-xs">Subject Profile: <br />Mustafizur Rahman</div>
+            </div>
             <div className="scanner-frame-profile aspect-[4/5] relative">
               <img 
-                src={heroImage}
+                src={bannerImg}
                 alt="Profile" 
                 className="photo-img-profile" 
               />
@@ -38,25 +66,45 @@ const AboutSection = () => {
           </div>
 
           <div className="id-data-grid">
-            <div className="p-3 bg-[#0a0a0a] border border-[#222]">
-              <span className="id-label mono uppercase text-[10px] text-[#666]">Experience</span>
+            <div className="p-3 bg-[#0a0a0a] border border-[#222] group hover:border-accent-red transition-colors">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="id-label mono uppercase text-[10px] text-[#666]">Experience</span>
+              </div>
               <span className="id-val text-white block">5+ Years</span>
             </div>
-            <div className="p-3 bg-[#0a0a0a] border border-[#222]">
-              <span className="id-label mono uppercase text-[10px] text-[#666]">Location</span>
+            <div className="p-3 bg-[#0a0a0a] border border-[#222] group hover:border-accent-red transition-colors">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="id-label mono uppercase text-[10px] text-[#666]">Location</span>
+              </div>
               <span className="id-val text-white block">Global / Remote</span>
             </div>
             <div className="status-wrapper">
               <div className="status-bg-scroll" />
-              <div className="status-header mono">
-                <span className="live-dot" />
+              <div className="status-header mono flex items-center gap-2">
+                <Activity size={10} className="text-accent-red" />
                 AVAILABILITY: HIGH
               </div>
-              <div className="status-main">OPERATIONAL</div>
-              <div className="status-footer mono">
-                <span>SYSTEM_V_OR_1.2</span>
-                <span>SECURE</span>
+              <div className="status-main flex items-center justify-center gap-3">
+                OPERATIONAL
               </div>
+              <div className="status-footer mono">
+                <ShieldCheck size={10} className="text-accent-red/50" />
+                <span>SECURE_V1.2</span>
+              </div>
+            </div>
+
+            <div className="id-socials-grid">
+              {socialLinks.map((link, idx) => (
+                <a 
+                  key={idx} 
+                  href={link.url} 
+                  className="social-access-node"
+                  aria-label={link.label}
+                >
+                  <span className="node-icon">{link.icon}</span>
+                  <span className="node-label mono">{link.label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -68,9 +116,10 @@ const AboutSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="analysis-header">
+          <div className="analysis-header flex items-center gap-3">
+            <Terminal size={14} className="text-accent-red" />
             <span className="text-accent-red mono uppercase">{" >> "}PSYCH_REPORT_ANALYSIS</span>
-            <span className="opacity-40 mono uppercase">TIMESTAMP: {new Date().toLocaleDateString()}</span>
+            <span className="opacity-40 mono uppercase ml-auto">TS: {new Date().toLocaleDateString()}</span>
           </div>
 
           <div className="psych-report">
@@ -88,7 +137,10 @@ const AboutSection = () => {
 
           <div className="dossier-history">
             <div className="history-block">
-              <h4 className="mono text-[#666] uppercase mb-6 tracking-widest text-xs">Project Metrics</h4>
+              <div className="flex items-center gap-3 mb-6">
+                <Award size={14} className="text-accent-red opacity-50" />
+                <h4 className="mono text-[#666] uppercase tracking-widest text-xs m-0">Project Metrics</h4>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {[
                   { num: "500+", label: "Artifacts Delivered" },
@@ -109,16 +161,24 @@ const AboutSection = () => {
 
         {/* Right Col: Capabilities */}
         <motion.div 
-          className="col-capabilities"
+          className="col-capabilities relative overflow-hidden"
           initial={{ opacity: 0, x: 30 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="profiler-module cap-top no-scan">
-            <span className="cat-title">Core Systems</span>
+          <div className="absolute top-1/4 right-0 pointer-events-none opacity-[0.03]">
+            <Layers size={200} />
+          </div>
+          <div className="profiler-module cap-top no-scan relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <Cpu size={18} className="text-accent-red" />
+              <span className="cat-title !mb-0">Core Systems</span>
+            </div>
             <div className="chips-grid">
               {["Motion Graphics", "Video Editing", "VFX Layout", "Color Grading", "Visual FX", "Cinematography"].map((skill, i) => (
-                <span key={i} className="tech-chip">{skill}</span>
+                <span key={i} className="tech-chip">
+                  {skill}
+                </span>
               ))}
             </div>
           </div>

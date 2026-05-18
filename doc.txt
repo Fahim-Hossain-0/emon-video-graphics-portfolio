@@ -1,0 +1,197 @@
+const VIDEO_WORK = [
+  {
+    id: 1,
+    title: "Social Reel 01",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share",
+  },
+  {
+    id: 2,
+    title: "Cinematic Landscape",
+    category: "Cinematic",
+    thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share",
+  },
+  {
+    id: 3,
+    title: "Product Commercial",
+    category: "Commercial",
+    thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share",
+  },
+  {
+    id: 4,
+    title: "Artist Spotlight",
+    category: "Documentary",
+    thumbnail: "https://img.youtube.com/vi/BDc4Lnitkcg/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/BDc4Lnitkcg?feature=share",
+  },
+  {
+    id: 5,
+    title: "Music Visualizer",
+    category: "Music",
+    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/0hp5rbId7oY",
+  },
+  {
+    id: 6,
+    title: "Travel Story",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/B0NTl7bELbg/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/B0NTl7bELbg",
+  },
+  {
+    id: 7,
+    title: "Brand Narrative",
+    category: "Corporate",
+    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/RMzfx2R56QQ",
+  },
+  {
+    id: 8,
+    title: "Short Film Promo",
+    category: "Motion",
+    thumbnail: "https://img.youtube.com/vi/Ul87MLAgJPY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/Ul87MLAgJPY",
+  },
+
+  // More Data
+
+  {
+    id: 9,
+    title: "Urban Motion",
+    category: "Cinematic",
+    thumbnail: "https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/jNQXAC9IVRw",
+  },
+  {
+    id: 10,
+    title: "Creative Edit",
+    category: "Editing",
+    thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/ScMzIvxBSi4",
+  },
+  {
+    id: 11,
+    title: "Motion Graphics",
+    category: "Motion",
+    thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/tgbNymZ7vqY",
+  },
+  {
+    id: 12,
+    title: "Street Photography Reel",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/kXYiU_JCYtU/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/kXYiU_JCYtU",
+  },
+  {
+    id: 13,
+    title: "Luxury Product Ad",
+    category: "Commercial",
+    thumbnail: "https://img.youtube.com/vi/aqz-KE-bpKQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/aqz-KE-bpKQ",
+  },
+  {
+    id: 14,
+    title: "Modern Branding",
+    category: "Corporate",
+    thumbnail: "https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/ysz5S6PUM-U",
+  },
+  {
+    id: 15,
+    title: "Dynamic Trailer",
+    category: "Trailer",
+    thumbnail: "https://img.youtube.com/vi/LXb3EKWsInQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/LXb3EKWsInQ",
+  },
+  {
+    id: 16,
+    title: "Creative Portfolio",
+    category: "Portfolio",
+    thumbnail: "https://img.youtube.com/vi/e-ORhEE9VVg/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/e-ORhEE9VVg",
+  },
+  {
+    id: 17,
+    title: "Minimal Animation",
+    category: "Animation",
+    thumbnail: "https://img.youtube.com/vi/fLexgOxsZu0/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/fLexgOxsZu0",
+  },
+  {
+    id: 18,
+    title: "Visual Storytelling",
+    category: "Story",
+    thumbnail: "https://img.youtube.com/vi/C0DPdy98e4c/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/C0DPdy98e4c",
+  },
+  {
+    id: 19,
+    title: "Night Drive",
+    category: "Cinematic",
+    thumbnail: "https://img.youtube.com/vi/hTWKbfoikeg/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/hTWKbfoikeg",
+  },
+  {
+    id: 20,
+    title: "Creative Vlog",
+    category: "Vlog",
+    thumbnail: "https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/3JZ_D3ELwOQ",
+  },
+];
+
+const DESIGN_WORK = [
+  { id: 1, title: "Brand Identity", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
+
+  { id: 2, title: "Abstract Shapes", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
+
+  { id: 3, title: "Minimal UI", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
+
+  { id: 4, title: "Typography", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
+
+  { id: 5, title: "Visual Story", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+
+  { id: 6, title: "App Interface", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
+
+  { id: 7, title: "Poster Concept", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
+
+  { id: 8, title: "Brand Guidelines", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
+
+  { id: 9, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+
+  { id: 10, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
+
+  { id: 11, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
+
+  { id: 12, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
+
+  { id: 13, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
+
+  { id: 14, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+
+  { id: 15, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
+
+  { id: 16, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
+
+  { id: 17, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
+
+  { id: 18, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
+
+  { id: 19, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
+
+  { id: 20, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+
+  { id: 21, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
+
+  { id: 22, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
+
+  { id: 23, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
+
+  { id: 24, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
+
+  { id: 25, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+];

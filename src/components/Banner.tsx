@@ -124,7 +124,7 @@ function Hero({ startReveal }: { startReveal: boolean }) {
         <div className="hero-label mono uppercase">
           Evidence of High-End Design & Motion
         </div>
-        <h1 className="hero-title serif">
+        <h1 className="hero-title lato">
           <span className="hero-layer-back">MUSTAFIZUR</span>
           <br />
           <span className="hero-layer-front">RAHMAN</span>
@@ -146,7 +146,7 @@ export default function Banner() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <Cursor />
       <Loader isDone={loaderDone} />
       <Hero startReveal={loaderDone} />

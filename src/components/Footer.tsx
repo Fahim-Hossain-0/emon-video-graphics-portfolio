@@ -17,7 +17,7 @@ const Footer = () => {
       style={{ background: "var(--footer-gradient)" }}
     >
       {/* Floating glow orbs */}
-      <motion.div
+      {/* <motion.div
         className="footer-glow-orb w-[400px] h-[400px] -top-40 -left-20"
         style={{ background: "hsl(260 80% 50%)" }}
         animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
@@ -34,7 +34,7 @@ const Footer = () => {
         style={{ background: "hsl(280 60% 45%)" }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+      /> */}
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center gap-12">
         {/* SVG underline swoosh */}
@@ -72,7 +72,7 @@ const Footer = () => {
                 <stop offset="100%" stopColor="hsl(280 60% 55%)" />
               </linearGradient>
             </defs>
-          </motion.svg>
+          </motion.svg> 
         </div>
 
         {/* Tagline */}

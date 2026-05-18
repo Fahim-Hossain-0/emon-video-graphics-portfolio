@@ -30,6 +30,16 @@
       cursor: none;
     }
   }
+
+  ::selection {
+    background-color: var(--accent-red);
+    color: #fff;
+  }
+  
+  ::-moz-selection {
+    background-color: var(--accent-red);
+    color: #fff;
+  }
 }
 
 /* ---- Global Helpers ---- */
@@ -582,6 +592,70 @@
 
 .alert-mark-bar, .alert-mark-dot { fill: #fff; }
 
+.id-socials-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  grid-column: span 2;
+  margin-top: 8px;
+}
+
+.social-access-node {
+  border: 1px solid #222;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-access-node:hover {
+  border-color: var(--accent-red);
+  background: rgba(255, 42, 42, 0.05);
+  transform: translateY(-2px);
+}
+
+.social-access-node .node-icon {
+  color: #666;
+  transition: color 0.3s;
+}
+
+.social-access-node:hover .node-icon {
+  color: var(--accent-red);
+}
+
+.social-access-node .node-label {
+  color: #444;
+  font-size: 8px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.social-access-node:hover .node-label {
+  color: #fff;
+}
+
+.social-access-node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background: var(--accent-red);
+  transition: height 0.3s;
+}
+
+.social-access-node:hover::before {
+  height: 100%;
+}
+
 /* ---- Projects & Contact ---- */
 .projects-section {
   display: flex;
@@ -822,5 +896,10 @@
 @layer utilities {
   .text-accent-red {
     color: var(--accent-red);
+  }
+
+  @keyframes scanline {
+    0% { top: -20%; }
+    100% { top: 120%; }
   }
 }
