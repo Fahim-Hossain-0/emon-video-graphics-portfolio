@@ -50,7 +50,7 @@ const AboutSection = () => {
               <img 
                 src={bannerImg}
                 alt="Profile" 
-                className="photo-img-profile" 
+                className="photo-img-profile mt-12 ml-6" 
               />
               <div className="scanner-grid-overlay-profile" />
               <div className="face-target-box-profile">
