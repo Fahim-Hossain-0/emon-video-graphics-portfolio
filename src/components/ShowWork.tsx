@@ -1,214 +1,26 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Play, 
   Palette,
   ArrowRight,
   Search
 } from "lucide-react";
+import { VIDEO_WORK, DESIGN_WORK, WorkItem } from "./constants";
 
-// --- Data ---
-const VIDEO_WORK = [
-  // First 6 shorts (Reel)
-  {
-    id: 1,
-    title: "Social Reel 01",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/1pzJxAmL06k/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/1pzJxAmL06k?feature=share"
-  },
-  {
-    id: 2,
-    title: "Social Reel 02",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/3i22i3KZf_4/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/3i22i3KZf_4?feature=share"
-  },
-  {
-    id: 3,
-    title: "Social Reel 03",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/w0PKqvgdUWI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/w0PKqvgdUWI?feature=share"
-  },
-  {
-    id: 4,
-    title: "Social Reel 04",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/cvxru314dOA/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/cvxru314dOA?feature=share"
-  },
-  {
-    id: 5,
-    title: "Social Reel 05",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/GJeyBsi1i74/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/GJeyBsi1i74?feature=share"
-  },
-  {
-    id: 6,
-    title: "Social Reel 06",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/gwy_RVUOBdM/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/gwy_RVUOBdM?feature=share"
-  },
-
-  // Next 5 regular videos
-  {
-    id: 7,
-    title: "Motion Video 01",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/2HQqQ-NdVco/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/2HQqQ-NdVco"
-  },
-  {
-    id: 8,
-    title: "Motion Video 02",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/07XWPgvLAlQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/07XWPgvLAlQ"
-  },
-  {
-    id: 9,
-    title: "Motion Video 03",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/PMU2wNVj7DY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/PMU2wNVj7DY"
-  },
-  {
-    id: 10,
-    title: "Motion Video 04",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/51eOiTEq8Us/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/51eOiTEq8Us"
-  },
-  {
-    id: 11,
-    title: "Motion Video 05",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/3b1N2Qi-Lp0/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/3b1N2Qi-Lp0"
-  },
-
-  // 4 shorts under "2D Motion AD"
-  {
-    id: 12,
-    title: "2D Motion AD 01",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share"
-  },
-  {
-    id: 13,
-    title: "2D Motion AD 02",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share"
-  },
-  {
-    id: 14,
-    title: "2D Motion AD 03",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share"
-  },
-  {
-    id: 15,
-    title: "2D Motion AD 04",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/BDc4Lnitkcg/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/BDc4Lnitkcg?feature=share"
-  },
-
-  // Next 2 regular videos
-  {
-    id: 16,
-    title: "Motion Video 06",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/0hp5rbId7oY"
-  },
-  {
-    id: 17,
-    title: "Motion Video 07",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/B0NTl7bELbg/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/B0NTl7bELbg"
-  },
-
-  // Last 2 regular videos
-  {
-    id: 18,
-    title: "Motion Video 08",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/RMzfx2R56QQ"
-  },
-  {
-    id: 19,
-    title: "Motion Video 09",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/Ul87MLAgJPY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/Ul87MLAgJPY"
+function getAspectRatio(item: any) {
+  const cat = item.category.toLowerCase();
+  const url = (item.videoUrl || '').toLowerCase();
+  
+  // Detect portrait/vertical content (Reels or Shorts)
+  if (cat.includes('reel') || cat.includes('short') || url.includes('shorts')) {
+    return "aspect-[9/16]";
   }
-];
-
-const DESIGN_WORK = [
-  { id: 1, title: "Brand Identity", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-
-  { id: 2, title: "Abstract Shapes", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-
-  { id: 3, title: "Minimal UI", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-
-  { id: 4, title: "Typography", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-
-  { id: 5, title: "Visual Story", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-
-  { id: 6, title: "App Interface", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-
-  { id: 7, title: "Poster Concept", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-
-  { id: 8, title: "Brand Guidelines", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-
-  { id: 9, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-
-  { id: 10, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-
-  { id: 11, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-
-  { id: 12, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-
-  { id: 13, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-
-  { id: 14, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-
-  { id: 15, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-
-  { id: 16, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-
-  { id: 17, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-
-  { id: 18, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-
-  { id: 19, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-
-  { id: 20, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-
-  { id: 21, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-
-  { id: 22, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-
-  { id: 23, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-
-  { id: 24, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-
-  { id: 25, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-];
-
-function getAspectRatio(category: string) {
-  const cat = category.toLowerCase();
-  if (cat.includes('reel') || cat.includes('story') || cat.includes('shorts')) return "aspect-[9/16]";
-  if (cat.includes('cinematic') || cat.includes('trailer') || cat.includes('commercial')) return "aspect-video";
+  // Detect landscape video content
+  if (cat.includes('video') || cat.includes('cinematic') || url.includes('youtu.be') || url.includes('watch')) {
+    return "aspect-video";
+  }
+  // Fallback for design or other types
   return "aspect-square";
 }
 
@@ -230,7 +42,7 @@ function GridLoader() {
   );
 }
 
-function MasonryGrid({ items, isVideo = false }: { items: any[], isVideo?: boolean }) {
+function MasonryGrid({ items, isVideo = false }: { items: WorkItem[], isVideo?: boolean }) {
   const handleItemClick = (url: string | undefined) => {
     if (url) window.open(url, '_blank');
   };
@@ -241,36 +53,38 @@ function MasonryGrid({ items, isVideo = false }: { items: any[], isVideo?: boole
         {items.map((item, index) => (
           <motion.div 
             key={item.id}
-            className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 break-inside-avoid cursor-pointer"
+            className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 break-inside-avoid cursor-pointer rounded-sm"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: index * 0.05 }}
             whileHover={{ y: -5 }}
             onClick={() => isVideo && handleItemClick(item.videoUrl)}
           >
-            <div className={`relative w-full overflow-hidden ${isVideo ? getAspectRatio(item.category) : 'aspect-auto'}`}>
+            <div className={`relative w-full overflow-hidden ${isVideo ? getAspectRatio(item) : 'aspect-auto'}`}>
               <img 
                 src={item.thumbnail} 
                 alt={item.title}
-                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105"
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
-              {/* Scanline effect on hover */}
+              {/* Scanline effect */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-red/5 to-transparent h-20 w-full top-[-20%] group-hover:animate-[scanline_2s_linear_infinite] pointer-events-none opacity-0 group-hover:opacity-100" />
             </div>
             
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-              <div className="flex justify-between items-end">
-                <div>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+              <div className="flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="text-left">
                   <span className="text-[10px] mono text-accent-red uppercase tracking-[0.2em] mb-1 block">
                     {item.category}
                   </span>
-                  <h3 className="text-white font-bold text-xl uppercase tracking-tighter">
+                  <h3 className="text-white font-bold text-xl uppercase tracking-tighter leading-none">
                     {item.title}
                   </h3>
                 </div>
-                <div className="w-10 h-10 border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-md">
-                  {isVideo ? <Play size={16} className="fill-white" /> : <Search size={16} />}
+                <div className="w-10 h-10 border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-md shrink-0">
+                  {isVideo ? <Play size={16} className="fill-white text-white" /> : <Search size={16} className="text-white" />}
                 </div>
               </div>
             </div>
@@ -292,86 +106,94 @@ export default function ShowWork() {
   }, [activeTab]);
 
   return (
-    <section id="work" className="min-h-screen bg-[#050505] pt-32 pb-20 overflow-hidden relative">
-      <div className="container mx-auto px-6 mb-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <div className="mono text-accent-red text-xs uppercase tracking-[0.4em] mb-4">
-              {" >> "}SELECTED_ASSETS_V2
-            </div>
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter serif leading-[0.8] mb-2">
-              The <span className="text-accent-red">Archive</span>
-            </h2>
-            <p className="text-gray-500 mono text-[10px] uppercase max-w-[300px] leading-relaxed">
-              A curated selection of high-end motion artifacts and visual identity systems.
-            </p>
-          </div>
+    <div className="min-h-screen bg-[#050505] selection:bg-accent-red selection:text-white">
+      {/* Background Grid Lines */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+      </div>
 
-          <div className="flex bg-[#0a0a0a] border border-[#222] p-1 self-start">
-            <button 
-              onClick={() => setActiveTab('video')}
-              className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
-                activeTab === 'video' 
-                  ? 'bg-accent-red text-white' 
-                  : 'text-gray-500 hover:text-white'
-              }`}
+      <section id="work" className="relative z-10 pt-32 pb-20 overflow-hidden">
+        <div className="container mx-auto px-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
             >
-              <Play size={12} className={activeTab === 'video' ? 'fill-current' : ''} />
-              Video
-            </button>
-            <button 
-              onClick={() => setActiveTab('design')}
-              className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
-                activeTab === 'design' 
-                  ? 'bg-accent-red text-white' 
-                  : 'text-gray-500 hover:text-white'
-              }`}
+              <div className="mono text-accent-red text-xs uppercase tracking-[0.4em] mb-4">
+                {" >> "}SELECTED_ASSETS_V2
+              </div>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter serif leading-[0.8] mb-2">
+                The <span className="text-accent-red">Archive</span>
+              </h2>
+              <p className="text-gray-500 mono text-[10px] uppercase max-w-[300px] leading-relaxed">
+                A curated selection of high-end motion artifacts and visual identity systems.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex bg-[#0a0a0a] border border-[#222] p-1 self-start"
             >
-              <Palette size={12} />
-              Design
-            </button>
+              <button 
+                onClick={() => setActiveTab('video')}
+                className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
+                  activeTab === 'video' 
+                    ? 'bg-accent-red text-white' 
+                    : 'text-gray-500 hover:text-white'
+                }`}
+              >
+                <Play size={12} className={activeTab === 'video' ? 'fill-current' : ''} />
+                Video
+              </button>
+              <button 
+                onClick={() => setActiveTab('design')}
+                className={`flex items-center gap-2 px-6 py-2 mono text-xs uppercase transition-all duration-300 ${
+                  activeTab === 'design' 
+                    ? 'bg-accent-red text-white' 
+                    : 'text-gray-500 hover:text-white'
+                }`}
+              >
+                <Palette size={12} />
+                Design
+              </button>
+            </motion.div>
           </div>
         </div>
-      </div>
 
-      <div className="relative min-h-[400px]">
-        <AnimatePresence mode="wait">
-          {loading ? (
-            <motion.div
-              key="loader"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <GridLoader />
-            </motion.div>
-          ) : (
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              {activeTab === 'design' ? (
-                <MasonryGrid items={DESIGN_WORK} />
-              ) : (
-                <MasonryGrid items={VIDEO_WORK} isVideo={true} />
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+        <div className="relative min-h-[400px]">
+          <AnimatePresence mode="wait">
+            {loading ? (
+              <motion.div
+                key="loader"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <GridLoader />
+              </motion.div>
+            ) : (
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                {activeTab === 'design' ? (
+                  <MasonryGrid items={DESIGN_WORK} />
+                ) : (
+                  <MasonryGrid items={VIDEO_WORK} isVideo={true} />
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
-      <div className="container mx-auto px-6 mt-12 flex justify-center">
-        <motion.button
-          className="flex items-center gap-4 group px-8 py-4 border border-[#222] hover:border-accent-red transition-colors"
-          whileHover={{ x: 5 }}
-        >
-          <span className="text-[10px] mono text-gray-500 group-hover:text-white uppercase tracking-[0.3em]">Load Next Evidence</span>
-          <ArrowRight className="w-4 h-4 text-accent-red" />
-        </motion.button>
-      </div>
-    </section>
+        
+      </section>
+
+      
+    </div>
   );
 }
