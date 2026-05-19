@@ -33,7 +33,7 @@
 
   ::selection {
     background-color: var(--accent-red);
-    color: #fff;
+    color: black;
   }
   
   ::-moz-selection {
@@ -104,19 +104,19 @@
   letter-spacing: 3px;
   background: rgba(255, 42, 42, 0.05);
   margin-bottom: 2rem;
-  padding: 8px 18px;
+  /* padding: 8px 18px; */
   font-size: 0.8rem;
   display: inline-block;
 }
 
 .hero-title {
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-  margin-bottom: 1rem;
-  font-size: clamp(3rem, 10vw, 8rem);
-  font-weight: 900;
-  line-height: 0.85;
+  /* color: #fff; */
+  /* text-transform: uppercase; */
+  /* letter-spacing: -0.04em; */
+  /* margin-bottom: 1rem; */
+  /* font-size: clamp(3rem, 10vw, 8rem); */
+  /* font-weight: 900; */
+  /* line-height: 0.85; */
 }
 
 .hero-layer-back, .hero-layer-front {
@@ -251,6 +251,7 @@
   padding: 5rem 1rem;
   position: relative;
   min-height: 90vh;
+  
 }
 
 @media (min-width: 900px) {

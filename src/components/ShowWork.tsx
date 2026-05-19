@@ -9,149 +9,148 @@ import {
 
 // --- Data ---
 const VIDEO_WORK = [
+  // First 6 shorts (Reel)
   {
     id: 1,
     title: "Social Reel 01",
     category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share",
+    thumbnail: "https://img.youtube.com/vi/1pzJxAmL06k/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/1pzJxAmL06k?feature=share"
   },
   {
     id: 2,
-    title: "Cinematic Landscape",
-    category: "Cinematic",
-    thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share",
+    title: "Social Reel 02",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/3i22i3KZf_4/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/3i22i3KZf_4?feature=share"
   },
   {
     id: 3,
-    title: "Product Commercial",
-    category: "Commercial",
-    thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share",
+    title: "Social Reel 03",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/w0PKqvgdUWI/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/w0PKqvgdUWI?feature=share"
   },
   {
     id: 4,
-    title: "Artist Spotlight",
-    category: "Documentary",
-    thumbnail: "https://img.youtube.com/vi/BDc4Lnitkcg/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/BDc4Lnitkcg?feature=share",
+    title: "Social Reel 04",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/cvxru314dOA/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/cvxru314dOA?feature=share"
   },
   {
     id: 5,
-    title: "Music Visualizer",
-    category: "Music",
-    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/0hp5rbId7oY",
+    title: "Social Reel 05",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/GJeyBsi1i74/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/GJeyBsi1i74?feature=share"
   },
   {
     id: 6,
-    title: "Travel Story",
+    title: "Social Reel 06",
     category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/B0NTl7bELbg/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/B0NTl7bELbg",
+    thumbnail: "https://img.youtube.com/vi/gwy_RVUOBdM/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/gwy_RVUOBdM?feature=share"
   },
+
+  // Next 5 regular videos
   {
     id: 7,
-    title: "Brand Narrative",
-    category: "Corporate",
-    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/RMzfx2R56QQ",
+    title: "Motion Video 01",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/2HQqQ-NdVco/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/2HQqQ-NdVco"
   },
   {
     id: 8,
-    title: "Short Film Promo",
-    category: "Motion",
-    thumbnail: "https://img.youtube.com/vi/Ul87MLAgJPY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/Ul87MLAgJPY",
+    title: "Motion Video 02",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/07XWPgvLAlQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/07XWPgvLAlQ"
   },
-
-  // More Data
-
   {
     id: 9,
-    title: "Urban Motion",
-    category: "Cinematic",
-    thumbnail: "https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/jNQXAC9IVRw",
+    title: "Motion Video 03",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/PMU2wNVj7DY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/PMU2wNVj7DY"
   },
   {
     id: 10,
-    title: "Creative Edit",
-    category: "Editing",
-    thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/ScMzIvxBSi4",
+    title: "Motion Video 04",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/51eOiTEq8Us/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/51eOiTEq8Us"
   },
   {
     id: 11,
-    title: "Motion Graphics",
-    category: "Motion",
-    thumbnail: "https://img.youtube.com/vi/tgbNymZ7vqY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/tgbNymZ7vqY",
+    title: "Motion Video 05",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/3b1N2Qi-Lp0/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/3b1N2Qi-Lp0"
   },
+
+  // 4 shorts under "2D Motion AD"
   {
     id: 12,
-    title: "Street Photography Reel",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/kXYiU_JCYtU/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/kXYiU_JCYtU",
+    title: "2D Motion AD 01",
+    category: "2D Motion AD",
+    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share"
   },
   {
     id: 13,
-    title: "Luxury Product Ad",
-    category: "Commercial",
-    thumbnail: "https://img.youtube.com/vi/aqz-KE-bpKQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/aqz-KE-bpKQ",
+    title: "2D Motion AD 02",
+    category: "2D Motion AD",
+    thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share"
   },
   {
     id: 14,
-    title: "Modern Branding",
-    category: "Corporate",
-    thumbnail: "https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/ysz5S6PUM-U",
+    title: "2D Motion AD 03",
+    category: "2D Motion AD",
+    thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share"
   },
   {
     id: 15,
-    title: "Dynamic Trailer",
-    category: "Trailer",
-    thumbnail: "https://img.youtube.com/vi/LXb3EKWsInQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/LXb3EKWsInQ",
+    title: "2D Motion AD 04",
+    category: "2D Motion AD",
+    thumbnail: "https://img.youtube.com/vi/BDc4Lnitkcg/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/BDc4Lnitkcg?feature=share"
   },
+
+  // Next 2 regular videos
   {
     id: 16,
-    title: "Creative Portfolio",
-    category: "Portfolio",
-    thumbnail: "https://img.youtube.com/vi/e-ORhEE9VVg/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/e-ORhEE9VVg",
+    title: "Motion Video 06",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/0hp5rbId7oY"
   },
   {
     id: 17,
-    title: "Minimal Animation",
-    category: "Animation",
-    thumbnail: "https://img.youtube.com/vi/fLexgOxsZu0/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/fLexgOxsZu0",
+    title: "Motion Video 07",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/B0NTl7bELbg/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/B0NTl7bELbg"
   },
+
+  // Last 2 regular videos
   {
     id: 18,
-    title: "Visual Storytelling",
-    category: "Story",
-    thumbnail: "https://img.youtube.com/vi/C0DPdy98e4c/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/C0DPdy98e4c",
+    title: "Motion Video 08",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/RMzfx2R56QQ"
   },
   {
     id: 19,
-    title: "Night Drive",
-    category: "Cinematic",
-    thumbnail: "https://img.youtube.com/vi/hTWKbfoikeg/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/hTWKbfoikeg",
-  },
-  {
-    id: 20,
-    title: "Creative Vlog",
-    category: "Vlog",
-    thumbnail: "https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/3JZ_D3ELwOQ",
-  },
+    title: "Motion Video 09",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/Ul87MLAgJPY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/Ul87MLAgJPY"
+  }
 ];
 
 const DESIGN_WORK = [
@@ -354,10 +353,10 @@ export default function ShowWork() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {activeTab === 'video' ? (
-                <MasonryGrid items={VIDEO_WORK} isVideo={true} />
-              ) : (
+              {activeTab === 'design' ? (
                 <MasonryGrid items={DESIGN_WORK} />
+              ) : (
+                <MasonryGrid items={VIDEO_WORK} isVideo={true} />
               )}
             </motion.div>
           )}
