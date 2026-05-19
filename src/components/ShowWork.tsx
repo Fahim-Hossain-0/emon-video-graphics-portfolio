@@ -73,7 +73,7 @@ function MasonryGrid({ items, isVideo = false }: { items: WorkItem[], isVideo?: 
             </div>
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+            {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
               <div className="flex justify-between items-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <div className="text-left">
                   <span className="text-[10px] mono text-accent-red uppercase tracking-[0.2em] mb-1 block">
@@ -87,7 +87,7 @@ function MasonryGrid({ items, isVideo = false }: { items: WorkItem[], isVideo?: 
                   {isVideo ? <Play size={16} className="fill-white text-white" /> : <Search size={16} className="text-white" />}
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         ))}
       </div>
@@ -123,7 +123,7 @@ export default function ShowWork() {
                 {" >> "}SELECTED_ASSETS_V2
               </div>
               <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter serif leading-[0.8] mb-2">
-                The <span className="text-accent-red">Archive</span>
+                the <span className="text-accent-red">evidence</span>
               </h2>
               <p className="text-gray-500 mono text-[10px] uppercase max-w-[300px] leading-relaxed">
                 A curated selection of high-end motion artifacts and visual identity systems.
@@ -193,7 +193,7 @@ export default function ShowWork() {
         
       </section>
 
-      
+            
     </div>
   );
 }

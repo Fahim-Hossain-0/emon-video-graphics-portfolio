@@ -124,14 +124,16 @@ const AboutSection = () => {
 
           <div className="psych-report">
             <h2 className="text-4xl md:text-6xl font-bold mb-10 serif uppercase">
-              About <span className="text-accent-red">Mustafizur</span>
+              File <span className="text-accent-red">Information</span>
             </h2>
+            {/* evidence-highlight */}
             <p className="lato text-gray-300 leading-relaxed mb-6">
-              I'm a passionate <span className="evidence-highlight">graphic designer</span> and <span className="evidence-highlight">video editor</span> with over 5 years
-              of experience crafting compelling visuals that captivate audiences. 
+              I am <span className="evidence-highlight">Mostafijur Rahman</span> a multi-disciplinary Visual Artist & Editor professionally known as mrvisualvibes. With over 5 years of experience crafting premium visual identities and cinematic stories, <span className="evidence-highlight ">my expertise bridges high-end graphic design, precision video editing, and dynamic motion graphics.</span>
+ 
             </p>
             <p className="lato text-gray-300 leading-relaxed mb-10">
-              My mission is to help brands stand out through stunning design and cinematic editing that leaves a lasting impression. I treat every frame as an <span className="evidence-highlight">evidence of high-end motion</span>.
+              My mission is to empower modern brands through minimalist aesthetics and strategic storytelling. From static pixels to fluid motion, I ensure every single frame delivers maximum value and leaves a powerful global impression.
+
             </p>
           </div>
 
@@ -175,7 +177,7 @@ const AboutSection = () => {
               <span className="cat-title !mb-0">Core Systems</span>
             </div>
             <div className="chips-grid">
-              {["Motion Graphics", "Video Editing", "VFX Layout", "Color Grading", "Visual FX", "Cinematography"].map((skill, i) => (
+              {["BRAND IDENTITY", "VISUAL DESIGN", "PRINT & PACKAGING", "VIDEO EDITING", "MOTION GRAPHICS", "COLOR GRADING","SOUND DESIGN","THUMBNAIL STRATEGY","VISUAL EFFECTS (VFX)"].map((skill, i) => (
                 <span key={i} className="tech-chip">
                   {skill}
                 </span>

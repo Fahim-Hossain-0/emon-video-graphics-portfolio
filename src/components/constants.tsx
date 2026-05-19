@@ -103,13 +103,13 @@ export const VIDEO_WORK: WorkItem[] = [
     thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
     videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share"
   },
-  {
-    id: 14,
-    title: "2D Motion AD 03",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share"
-  },
+//   {
+//     id: 14,
+//     title: "2D Motion AD 03",
+//     category: "2D Motion AD",
+//     thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
+//     videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share"
+//   },
   {
     id: 15,
     title: "2D Motion AD 04",
