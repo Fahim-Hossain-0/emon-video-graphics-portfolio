@@ -63,7 +63,7 @@ function MasonryGrid({
           {items.map((item, index) => (
             <motion.div
               key={item.id}
-              className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 break-inside-avoid  rounded-2xl"
+              className="relative group overflow-hidden bg-zinc-900 border border-zinc-800 break-inside-avoid cursor-pointer rounded-2xl"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
