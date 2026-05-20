@@ -6,21 +6,25 @@ export interface WorkItem {
   videoUrl?: string; // Optional for design items
 }
 
+export const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+};
+
 export const VIDEO_WORK: WorkItem[] = [
-  // First 6 shorts (Reel)
   {
-    id: 1,
-    title: "Social Reel 01",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/1pzJxAmL06k/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/1pzJxAmL06k?feature=share"
-  },
-  {
-    id: 2,
-    title: "Social Reel 02",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/3i22i3KZf_4/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/3i22i3KZf_4?feature=share"
+    id: 7,
+    title: "Motion Video 01",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/2HQqQ-NdVco/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/2HQqQ-NdVco"
   },
   {
     id: 3,
@@ -30,41 +34,25 @@ export const VIDEO_WORK: WorkItem[] = [
     videoUrl: "https://youtube.com/shorts/w0PKqvgdUWI?feature=share"
   },
   {
-    id: 4,
-    title: "Social Reel 04",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/cvxru314dOA/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/cvxru314dOA?feature=share"
-  },
-  {
-    id: 5,
-    title: "Social Reel 05",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/GJeyBsi1i74/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/GJeyBsi1i74?feature=share"
-  },
-  {
-    id: 6,
-    title: "Social Reel 06",
-    category: "Reel",
-    thumbnail: "https://img.youtube.com/vi/gwy_RVUOBdM/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/gwy_RVUOBdM?feature=share"
-  },
-
-  // Next 5 regular videos
-  {
-    id: 7,
-    title: "Motion Video 01",
+    id: 16,
+    title: "Motion Video 06",
     category: "Video",
-    thumbnail: "https://img.youtube.com/vi/2HQqQ-NdVco/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/2HQqQ-NdVco"
+    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/0hp5rbId7oY"
   },
   {
-    id: 8,
-    title: "Motion Video 02",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/07XWPgvLAlQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/07XWPgvLAlQ"
+    id: 1,
+    title: "Social Reel 01",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/1pzJxAmL06k/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/1pzJxAmL06k?feature=share"
+  },
+  {
+    id: 12,
+    title: "2D Motion AD 01",
+    category: "2D Motion AD",
+    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share"
   },
   {
     id: 9,
@@ -74,27 +62,18 @@ export const VIDEO_WORK: WorkItem[] = [
     videoUrl: "https://youtu.be/PMU2wNVj7DY"
   },
   {
-    id: 10,
-    title: "Motion Video 04",
-    category: "Video",
-    thumbnail: "https://img.youtube.com/vi/51eOiTEq8Us/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/51eOiTEq8Us"
+    id: 5,
+    title: "Social Reel 05",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/GJeyBsi1i74/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/GJeyBsi1i74?feature=share"
   },
   {
-    id: 11,
-    title: "Motion Video 05",
+    id: 18,
+    title: "Motion Video 08",
     category: "Video",
-    thumbnail: "https://img.youtube.com/vi/3b1N2Qi-Lp0/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/3b1N2Qi-Lp0"
-  },
-
-  // 4 shorts under "2D Motion AD"
-  {
-    id: 12,
-    title: "2D Motion AD 01",
-    category: "2D Motion AD",
-    thumbnail: "https://img.youtube.com/vi/ZSSCOZ4jfNY/maxresdefault.jpg",
-    videoUrl: "https://youtube.com/shorts/ZSSCOZ4jfNY?feature=share"
+    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/RMzfx2R56QQ"
   },
   {
     id: 13,
@@ -103,13 +82,27 @@ export const VIDEO_WORK: WorkItem[] = [
     thumbnail: "https://img.youtube.com/vi/ysrGvz16ezI/maxresdefault.jpg",
     videoUrl: "https://youtube.com/shorts/ysrGvz16ezI?feature=share"
   },
-//   {
-//     id: 14,
-//     title: "2D Motion AD 03",
-//     category: "2D Motion AD",
-//     thumbnail: "https://img.youtube.com/vi/8ZPgg-0yEAI/maxresdefault.jpg",
-//     videoUrl: "https://youtube.com/shorts/8ZPgg-0yEAI?feature=share"
-//   },
+  {
+    id: 2,
+    title: "Social Reel 02",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/3i22i3KZf_4/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/3i22i3KZf_4?feature=share"
+  },
+  {
+    id: 10,
+    title: "Motion Video 04",
+    category: "Video",
+    thumbnail: "https://img.youtube.com/vi/51eOiTEq8Us/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/51eOiTEq8Us"
+  },
+  {
+    id: 6,
+    title: "Social Reel 06",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/gwy_RVUOBdM/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/gwy_RVUOBdM?feature=share"
+  },
   {
     id: 15,
     title: "2D Motion AD 04",
@@ -117,14 +110,19 @@ export const VIDEO_WORK: WorkItem[] = [
     thumbnail: "https://img.youtube.com/vi/BDc4Lnitkcg/maxresdefault.jpg",
     videoUrl: "https://youtube.com/shorts/BDc4Lnitkcg?feature=share"
   },
-
-  // Next 2 regular videos
   {
-    id: 16,
-    title: "Motion Video 06",
+    id: 8,
+    title: "Motion Video 02",
     category: "Video",
-    thumbnail: "https://img.youtube.com/vi/0hp5rbId7oY/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/0hp5rbId7oY"
+    thumbnail: "https://img.youtube.com/vi/07XWPgvLAlQ/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/07XWPgvLAlQ"
+  },
+  {
+    id: 4,
+    title: "Social Reel 04",
+    category: "Reel",
+    thumbnail: "https://img.youtube.com/vi/cvxru314dOA/maxresdefault.jpg",
+    videoUrl: "https://youtube.com/shorts/cvxru314dOA?feature=share"
   },
   {
     id: 17,
@@ -133,14 +131,12 @@ export const VIDEO_WORK: WorkItem[] = [
     thumbnail: "https://img.youtube.com/vi/B0NTl7bELbg/maxresdefault.jpg",
     videoUrl: "https://youtu.be/B0NTl7bELbg"
   },
-
-  // Last 2 regular videos
   {
-    id: 18,
-    title: "Motion Video 08",
+    id: 11,
+    title: "Motion Video 05",
     category: "Video",
-    thumbnail: "https://img.youtube.com/vi/RMzfx2R56QQ/maxresdefault.jpg",
-    videoUrl: "https://youtu.be/RMzfx2R56QQ"
+    thumbnail: "https://img.youtube.com/vi/3b1N2Qi-Lp0/maxresdefault.jpg",
+    videoUrl: "https://youtu.be/3b1N2Qi-Lp0"
   },
   {
     id: 19,

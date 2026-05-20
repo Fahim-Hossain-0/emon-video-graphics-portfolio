@@ -12,7 +12,9 @@ import {
   Terminal,
   Fingerprint,
   Layers,
-  Award
+  Award,
+  ChevronsLeftRightEllipsis,
+  Palette
 } from "lucide-react";
 import bannerImg from "../assets/banner/hero.png"
 
@@ -21,12 +23,12 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const socialLinks = [
-    { icon: <Instagram size={14} />, label: "IG", url: "#" },
-    { icon: <Twitter size={14} />, label: "TW", url: "#" },
-    { icon: <Linkedin size={14} />, label: "LN", url: "#" },
-    { icon: <Mail size={14} />, label: "EM", url: "mailto:hello@mustafizur.com" },
-    { icon: <Globe size={14} />, label: "WEB", url: "#" },
-  ];
+  { icon: <Linkedin size={14} />, label: "LinkedIn", url: "#" },
+  { icon: <ChevronsLeftRightEllipsis size={14} />, label: "Upwork", url: "#" },
+  { icon: <Palette size={14} />, label: "Behance", url: "#" },
+  { icon: <Instagram size={14} />, label: "Instagram", url: "#" },
+  { icon: <Mail size={14} />, label: "Email", url: "mailto:hello@mustafizur.com" },
+];
 
   return (
     <section id="about" className="about-section scroll-mt-0 bg-black">
@@ -44,13 +46,17 @@ const AboutSection = () => {
           <div className="profiler-module no-scan relative z-10">
             <div className="flex items-center gap-3 mb-6">
               <Fingerprint size={24} className="text-accent-red opacity-50" />
-              <div className="identity-name mono uppercase tracking-widest text-xs">Subject Profile: <br />Mustafizur Rahman</div>
+              <div className="identity-name mono uppercase tracking-widest "> 
+                <span className="text-sm ">CREATIVE PROFILE: </span> 
+                <br />
+                <span className="evidence-highlight">Mustafizur Rahman</span>
+                </div>
             </div>
             <div className="scanner-frame-profile aspect-[4/5] relative">
               <img 
                 src={bannerImg}
                 alt="Profile" 
-                className="photo-img-profile mt-12 ml-6" 
+                className="photo-img-profile object-center" 
               />
               <div className="scanner-grid-overlay-profile" />
               <div className="face-target-box-profile">
@@ -84,8 +90,8 @@ const AboutSection = () => {
                 <Activity size={10} className="text-accent-red" />
                 AVAILABILITY: HIGH
               </div>
-              <div className="status-main flex items-center justify-center gap-3">
-                OPERATIONAL
+              <div className="status-main flex items-center justify-center gap-3 text-[#6EC531] selection:bg-[#6EC531] selection:text-black">
+                ONLINE NOW
               </div>
               <div className="status-footer mono">
                 <ShieldCheck size={10} className="text-accent-red/50" />
@@ -128,7 +134,7 @@ const AboutSection = () => {
             </h2>
             {/* evidence-highlight */}
             <p className="lato text-gray-300 leading-relaxed mb-6">
-              I am <span className="evidence-highlight">Mostafijur Rahman</span> a multi-disciplinary Visual Artist & Editor professionally known as mrvisualvibes. With over 5 years of experience crafting premium visual identities and cinematic stories, <span className="evidence-highlight ">my expertise bridges high-end graphic design, precision video editing, and dynamic motion graphics.</span>
+              I am <span className="">Mostafijur Rahman</span> a multi-disciplinary Visual Artist & Editor professionally known as <span className="evidence-highlight uppercase">mrvisualvibes.</span>  With over 5 years of experience crafting premium visual identities and cinematic stories, my expertise bridges <span className="evidence-highlight"> high-end graphic design,</span><span>precision </span> <span className="evidence-highlight"> video editing </span> and dynamic <span className="evidence-highlight"> motion graphics.</span>
  
             </p>
             <p className="lato text-gray-300 leading-relaxed mb-10">
@@ -143,11 +149,11 @@ const AboutSection = () => {
                 <Award size={14} className="text-accent-red opacity-50" />
                 <h4 className="mono text-[#666] uppercase tracking-widest text-xs m-0">Project Metrics</h4>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 playfair">
                 {[
-                  { num: "500+", label: "Artifacts Delivered" },
-                  { num: "120+", label: "Verified Clients" },
-                  { num: "98%", label: "Retention Rate" },
+                  { num: "500+", label: "Premium Projects"},
+                  { num: "120+", label: "Global Clients"},
+                  { num: "98%", label: "Success Rate"},
                 ].map((stat, i) => (
                   <div key={i} className="history-item">
                     <div className="history-header">

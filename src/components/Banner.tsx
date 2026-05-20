@@ -124,7 +124,7 @@ function Hero({ startReveal }: { startReveal: boolean }) {
         <div className="hero-label mono uppercase py-1 px-3">
           Evidence of High-End Design & Motion
         </div>
-        <h1 className="hero-title serif text-[170px] font-extrabold leading-[150px] tracking-[-6px]">
+        <h1 className="hero-title playfair text-[170px] font-extrabold leading-[150px] tracking-[-6px]">
           <span className="hero-layer-back">MUSTAFIZUR</span>
           <br />
           <span className="hero-layer-front">RAHMAN</span>
