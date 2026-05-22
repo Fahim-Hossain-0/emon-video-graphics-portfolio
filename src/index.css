@@ -64,6 +64,11 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
+html {
+  scrollbar-color: #ff2a2a #000; /* Blue thumb, light grey track */
+  scrollbar-width: thin;            /* Optional: makes it thinner */
+}
+
 /* ---- Global Helpers ---- */
 /* .mono { font-family: var(--font-mono); } */
 .playfair { font-family: var(--font-playfair); }

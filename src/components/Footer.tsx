@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#e0e0e0] flex flex-col items-center justify-center px-4 py-24">
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#e0e0e0] flex flex-col items-center justify-center px-4 py-16">
       
       {/* Noise Overlay */}
       <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] pointer-events-none" />
@@ -52,7 +52,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-8xl playfair leading-tight font-light mb-8"
+          className="text-5xl md:text-[75px] playfair leading-tight font-light mb-8"
         >
           What if we <br /> worked together?
         </motion.h1>
@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="relative group">
           <a
             href="#"
-            className="border border-slate-600 hover:border-accent-red px-12 py-6 uppercase tracking-[0.3em] text-sm transition duration-500"
+            className="border border-slate-600 hover:border-accent-red px-12 py-6 uppercase font-medium text-lg lato transition duration-500"
           >
             Initiate Contact
           </a>

@@ -16,6 +16,14 @@ import {
   ChevronsLeftRightEllipsis,
   Palette
 } from "lucide-react";
+import {
+  FaLinkedinIn,
+  FaBehance,
+  FaInstagram,
+  FaUpwork,
+} from "react-icons/fa6";
+
+// import { Mail } from "lucide-react";
 import bannerImg from "../assets/banner/hero.png"
 
 const AboutSection = () => {
@@ -23,12 +31,33 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   
 
-  const socialLinks = [
-  { icon: <Linkedin size={14} />, label: "LinkedIn", url: "#" },
-  { icon: <ChevronsLeftRightEllipsis size={14} />, label: "Upwork", url: "#" },
-  { icon: <Palette size={14} />, label: "Behance", url: "#" },
-  { icon: <Instagram size={14} />, label: "Instagram", url: "#" },
-  { icon: <Mail size={14} />, label: "Email", url: "mailto:hello@mustafizur.com" },
+
+const socialLinks = [
+  {
+    icon: <FaLinkedinIn size={14} />,
+    label: "LinkedIn",
+    url: "#",
+  },
+  {
+    icon: <FaUpwork size={14} />,
+    label: "Upwork",
+    url: "#",
+  },
+  {
+    icon: <FaBehance size={14} />,
+    label: "Behance",
+    url: "#",
+  },
+  {
+    icon: <FaInstagram size={14} />,
+    label: "Instagram",
+    url: "#",
+  },
+  {
+    icon: <Mail size={14} />,
+    label: "Email",
+    url: "mailto:hello@mustafizur.com",
+  },
 ];
 
   return (
