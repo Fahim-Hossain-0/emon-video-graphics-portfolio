@@ -31,11 +31,11 @@ export default function Footer() {
       </div>
 
       {/* Diagonal Light */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="absolute w-[1px] h-[1000px] rotate-45 bg-gradient-to-t from-red-500 to-transparent opacity-40" />
 
         <div className="absolute w-4 h-4 rounded-full bg-white blur-sm shadow-[0_0_30px_white]" />
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <section className="relative z-10 flex flex-col items-center text-center max-w-4xl">
@@ -52,7 +52,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-8xl leading-tight font-light mb-8"
+          className="text-5xl md:text-8xl playfair leading-tight font-light mb-8"
         >
           What if we <br /> worked together?
         </motion.h1>
@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="relative group">
           <a
             href="#"
-            className="border border-red-500 px-8 py-4 uppercase tracking-[0.3em] text-sm hover:bg-red-500 hover:text-black transition-all duration-300"
+            className="border border-slate-600 hover:border-accent-red px-12 py-6 uppercase tracking-[0.3em] text-sm transition duration-500"
           >
             Initiate Contact
           </a>
@@ -93,7 +93,7 @@ export default function Footer() {
               <a
                 key={item}
                 href="#"
-                className="hover:text-[#ff2a2a] transform relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#ff2a2a] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="text-[#ff2a2a] transform relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#ff2a2a] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 [ {item} ]
               </a>

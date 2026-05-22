@@ -11,10 +11,10 @@
     --bg-color: #050505;
     --text-color: #e0e0e0;
     --accent-red: #ff2a2a;
-    --font-sans: 'Inter', sans-serif;
+    /* --font-sans: 'Inter', sans-serif; */
     --font-playfair: "Playfair Display", serif;
-    --font-serif: 'Playfair Display', serif;
-    --font-mono: 'Rethink Sans', sans-serif;
+    /* --font-serif: 'Playfair Display', serif; */
+    /* --font-mono: 'Rethink Sans', sans-serif; */
     --font-lato: 'Lato', sans-serif;
   }
 
@@ -24,8 +24,10 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: var(--font-sans);
+    /* font-family: var(--font-sans); */
   }
+
+
 
   /* Hide default cursor only if we have the custom one */
   @media (hover: hover) and (pointer: fine) {
@@ -45,10 +47,27 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
 /* ---- Global Helpers ---- */
-.mono { font-family: var(--font-mono); }
+/* .mono { font-family: var(--font-mono); } */
 .playfair { font-family: var(--font-playfair); }
-.serif { font-family: var(--font-serif); }
+/* .serif { font-family: var(--font-serif); } */
 .lato { font-family: var(--font-lato); }
 .uppercase { text-transform: uppercase; }
 
@@ -156,7 +175,7 @@
   .custom-cursor__dot {
     width: 6px;
     height: 6px;
-    /* border-radius: 5%; */
+    border-radius: 50%;
     background: var(--accent-red);
     box-shadow: 0 0 12px rgba(255, 42, 42, 0.6);
     margin-left: -3px;
@@ -265,7 +284,7 @@
 
 .profiler-container {
   z-index: 50;
-  border-top: 1px solid #333;
+  /* border-top: 1px solid #333; */
   gap: 2rem;
   width: 100%;
   max-width: 1400px;
@@ -370,7 +389,7 @@
   text-shadow: 0 0 2px #000;
   background: rgba(0, 0, 0, 0.6);
   padding: 1px 3px;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   font-size: 0.45rem;
   position: absolute;
 }
@@ -484,7 +503,7 @@
 }
 
 .psych-report h2 {
-  font-family: var(--font-serif);
+  /* font-family: var(--font-serif); */
 }
 
 .psych-report p {
@@ -526,7 +545,7 @@
 
 .cat-title {
   color: #666;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 2px;
@@ -545,7 +564,7 @@
   border: 1px solid #333;
   padding: 8px 16px;
   font-size: 0.8rem;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   text-transform: uppercase;
   transition: all 0.3s;
 }
@@ -786,7 +805,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 1.2rem 3.5rem;
   font-size: 1.1rem;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
@@ -806,7 +825,7 @@
   margin: 0 1.5rem;
   color: #666;
   text-decoration: none;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   text-transform: uppercase;
   font-size: 0.75rem;
   transition: color 0.3s;
@@ -866,7 +885,7 @@
 .loader-label {
   color: #666;
   letter-spacing: 0.25em;
-  font-family: var(--font-mono);
+  /* font-family: var(--font-mono); */
   text-transform: uppercase;
   font-size: 0.7rem;
   margin-bottom: 20px;

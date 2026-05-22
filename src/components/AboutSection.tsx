@@ -21,6 +21,7 @@ import bannerImg from "../assets/banner/hero.png"
 const AboutSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  
 
   const socialLinks = [
   { icon: <Linkedin size={14} />, label: "LinkedIn", url: "#" },
@@ -49,7 +50,7 @@ const AboutSection = () => {
               <div className="identity-name mono uppercase tracking-widest "> 
                 <span className="text-sm ">CREATIVE PROFILE: </span> 
                 <br />
-                <span className="evidence-highlight">Mustafizur Rahman</span>
+                <span className="text-accent-red">Mustafizur Rahman</span>
                 </div>
             </div>
             <div className="scanner-frame-profile aspect-[4/5] relative">
@@ -74,9 +75,9 @@ const AboutSection = () => {
           <div className="id-data-grid">
             <div className="p-3 bg-[#0a0a0a] border border-[#222] group hover:border-accent-red transition-colors">
               <div className="flex items-center gap-2 mb-1">
-                <span className="id-label mono uppercase text-[10px] text-[#666]">Experience</span>
+                <span className="id-label uppercase text-[10px] text-[#666]">Experience</span>
               </div>
-              <span className="id-val text-white block">5+ Years</span>
+              <span className="text-white"><span className="text-accent-red playfair font-semibold">5+</span> Years</span>
             </div>
             <div className="p-3 bg-[#0a0a0a] border border-[#222] group hover:border-accent-red transition-colors">
               <div className="flex items-center gap-2 mb-1">
@@ -129,12 +130,12 @@ const AboutSection = () => {
           </div>
 
           <div className="psych-report">
-            <h2 className="text-4xl md:text-6xl font-bold mb-10 serif uppercase">
+            <h2 className="text-4xl md:text-6xl font-bold mb-10 playfair uppercase">
               File <span className="text-accent-red">Information</span>
             </h2>
             {/* evidence-highlight */}
             <p className="lato text-gray-300 leading-relaxed mb-6">
-              I am <span className="">Mostafijur Rahman</span> a multi-disciplinary Visual Artist & Editor professionally known as <span className="evidence-highlight uppercase">mrvisualvibes.</span>  With over 5 years of experience crafting premium visual identities and cinematic stories, my expertise bridges <span className="evidence-highlight"> high-end graphic design,</span><span>precision </span> <span className="evidence-highlight"> video editing </span> and dynamic <span className="evidence-highlight"> motion graphics.</span>
+              I am <span className="">Mostafijur Rahman</span> a multi-disciplinary Visual Artist & Editor professionally known as <span className="evidence-highlight">mrvisualvibes.</span> With over 5 years of experience crafting premium visual identities and cinematic stories, my expertise bridges <span className="evidence-highlight">high-end graphic design,</span> precision <br /> <span className="evidence-highlight">video editing</span> and dynamic <span className="evidence-highlight">motion graphics.</span>
  
             </p>
             <p className="lato text-gray-300 leading-relaxed mb-10">
@@ -184,7 +185,7 @@ const AboutSection = () => {
             </div>
             <div className="chips-grid">
               {["BRAND IDENTITY", "VISUAL DESIGN", "PRINT & PACKAGING", "VIDEO EDITING", "MOTION GRAPHICS", "COLOR GRADING","SOUND DESIGN","THUMBNAIL STRATEGY","VISUAL EFFECTS (VFX)"].map((skill, i) => (
-                <span key={i} className="tech-chip">
+                <span key={i} className="tech-chip lato">
                   {skill}
                 </span>
               ))}

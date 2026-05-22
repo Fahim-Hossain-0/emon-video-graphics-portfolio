@@ -55,6 +55,7 @@ function MasonryGrid({
 }) {
   const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
   const [selectedItem, setSelectedItem] = useState<WorkItem | null>(null);
+  const [videoLoaded, setVideoLoaded] = useState<number | null>(null);
 
   return (
     <>
@@ -68,45 +69,120 @@ function MasonryGrid({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
               whileHover={{ y: -5 }}
-              onMouseEnter={() => isVideo && setHoveredVideo(item.id)}
-              onMouseLeave={() => isVideo && setHoveredVideo(null)}
+              onMouseEnter={() => {
+  if (isVideo) {
+    setHoveredVideo(item.id);
+    setVideoLoaded(null);
+  }
+}}
+              onMouseLeave={() => {
+  if (isVideo) {
+    setHoveredVideo(null);
+    setVideoLoaded(null);
+  }
+}}
               onClick={() => setSelectedItem(item)}
             >
               <div
-                className={`relative w-full overflow-hidden ${
-                  isVideo ? getAspectRatio(item) : "aspect-auto"
-                }`}
-              >
-                {/* Hover Video */}
-                {isVideo && hoveredVideo === item.id ? (
-                  <iframe
-                    src={getEmbedUrl(item.videoUrl || "")}
-                    className="w-full h-full absolute inset-0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
-                ) : (
-                  <img
-                    src={item.thumbnail}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-all duration-700 grayscale-[0.6] group-hover:grayscale-0 scale-100 group-hover:scale-105"
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                  />
-                )}
+ className={`relative w-full overflow-hidden ${
+    isVideo ? getAspectRatio(item) : ""
+  }`}
+>
+  {/* Thumbnail */}
+  <img
+    src={item.thumbnail}
+    alt={item.title}
+    className={`
+  w-full h-full object-cover
+  transition-all duration-500
+  grayscale-[0.6]
+  group-hover:grayscale-0
+  group-hover:scale-105
+  ${
+    isVideo
+      ? "absolute inset-0"
+      : "relative"
+  }
+  ${
+    hoveredVideo === item.id && videoLoaded === item.id
+      ? "opacity-0"
+      : "opacity-100"
+  }
+`}
+    loading="lazy"
+    referrerPolicy="no-referrer"
+  />
 
-                {/* Overlay */}
-                {/* <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  {isVideo && (
-                    <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-                      <Play
-                        size={22}
-                        className="text-white fill-white ml-1"
-                      />
-                    </div>
-                  )}
-                </div> */}
-              </div>
+  {/* Youtube Video */}
+  {isVideo && hoveredVideo === item.id && (
+    <>
+      <iframe
+        src={getEmbedUrl(item.videoUrl || "")}
+        className={`
+          absolute inset-0
+          w-full h-full
+          transition-opacity duration-500
+          ${
+            videoLoaded === item.id
+              ? "opacity-100"
+              : "opacity-0"
+          }
+        `}
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+        onLoad={() => setVideoLoaded(item.id)}
+      />
+
+      {/* Loader */}
+      {videoLoaded !== item.id && (
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+        </div>
+      )}
+    </>
+  )}
+
+  {/* Overlay */}
+  <div
+    className="
+      absolute inset-0
+      bg-black/20
+      group-hover:bg-black/10
+      transition-all duration-300
+      z-10
+    "
+  />
+
+  {/* Play Button */}
+  {isVideo && hoveredVideo !== item.id && (
+    <div
+      className="
+        absolute inset-0
+        flex items-center justify-center
+        transition-all duration-300
+        z-30
+        pointer-events-none
+      "
+    >
+      <div
+        className="
+          w-16 h-16 rounded-full
+          bg-white/15
+          backdrop-blur-md
+          border border-white/20
+          flex items-center justify-center
+          group-hover:scale-110
+          transition-all duration-300
+        "
+      >
+        <Play
+          size={26}
+          className="text-white fill-white ml-1"
+        />
+      </div>
+    </div>
+  )}
+</div>
             </motion.div>
           ))}
         </div>
@@ -184,7 +260,7 @@ export default function ShowWork() {
                 {" >> "}SELECTED_ASSETS_V2
               </div>
 
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter serif leading-[0.8] mb-2">
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter playfair leading-[0.8] mb-2 ">
                 the <span className="text-accent-red">evidence</span>
               </h2>
             </div>
