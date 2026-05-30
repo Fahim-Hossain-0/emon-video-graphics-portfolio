@@ -125,7 +125,7 @@ function Hero({ startReveal }: { startReveal: boolean }) {
           Evidence of High-End Design & Motion
         </div>
         <h1 className="hero-title playfair text-[170px] md:text-[185px] font-extrabold leading-[150px] tracking-[-6px]">
-          <span className="hero-layer-back">MUSTAFIZUR</span>
+          <span className="hero-layer-back">Mostafijur</span>
           <br />
           <span className="hero-layer-front">RAHMAN</span>
         </h1>

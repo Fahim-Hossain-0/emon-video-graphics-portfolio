@@ -1,6 +1,6 @@
 export interface WorkItem {
   id: number;
-  title: string;
+  // title: string;
   category: string;
   thumbnail: string;
   videoUrl?: string; // Optional for design items
@@ -144,33 +144,84 @@ export const VIDEO_WORK: WorkItem[] = [
     category: "Video",
     thumbnail: "https://img.youtube.com/vi/Ul87MLAgJPY/maxresdefault.jpg",
     videoUrl: "https://youtu.be/Ul87MLAgJPY"
-  }
+  },
+  {
+  id: 20,
+  title: "Motion Video 10",
+  category: "Video",
+  thumbnail: "https://img.youtube.com/vi/4VFa_TkQaFU/maxresdefault.jpg",
+  videoUrl: "https://youtu.be/4VFa_TkQaFU"
+},
+{
+  id: 21,
+  title: "Social Reel 07",
+  category: "Reel",
+  thumbnail: "https://img.youtube.com/vi/ba_aALAxBsE/maxresdefault.jpg",
+  videoUrl: "https://youtube.com/shorts/ba_aALAxBsE?feature=share"
+},
+{
+  id: 22,
+  title: "Motion Video 11",
+  category: "Video",
+  thumbnail: "https://img.youtube.com/vi/QEQwjfxZhB4/maxresdefault.jpg",
+  videoUrl: "https://youtu.be/QEQwjfxZhB4"
+},
+{
+  id: 23,
+  title: "Social Reel 08",
+  category: "Reel",
+  thumbnail: "https://img.youtube.com/vi/x_3vS9_1I6Y/maxresdefault.jpg",
+  videoUrl: "https://youtube.com/shorts/x_3vS9_1I6Y?feature=share"
+},
+{
+  id: 24,
+  title: "Social Reel 09",
+  category: "Reel",
+  thumbnail: "https://img.youtube.com/vi/xpxmTfXSiBE/maxresdefault.jpg",
+  videoUrl: "https://youtube.com/shorts/xpxmTfXSiBE?feature=share"
+},
+{
+  id: 23,
+  title: "Social Reel 08",
+  category: "Reel",
+  thumbnail: "https://img.youtube.com/vi/x_3vS9_1I6Y/maxresdefault.jpg",
+  videoUrl: "https://youtube.com/shorts/x_3vS9_1I6Y?feature=share"
+}
 ];
 
 export const DESIGN_WORK: WorkItem[] = [
-  { id: 1, title: "Brand Identity", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-  { id: 2, title: "Abstract Shapes", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-  { id: 3, title: "Minimal UI", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-  { id: 4, title: "Typography", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-  { id: 5, title: "Visual Story", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-  { id: 6, title: "App Interface", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-  { id: 7, title: "Poster Concept", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-  { id: 8, title: "Brand Guidelines", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-  { id: 9, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-  { id: 10, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-  { id: 11, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-  { id: 12, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-  { id: 13, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-  { id: 14, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-  { id: 15, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-  { id: 16, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-  { id: 17, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-  { id: 18, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-  { id: 19, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/Linked_In_banner_jeuimk.jpg" },
-  { id: 20, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
-  { id: 21, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112573/You_Tube_Banner_omoqmz.jpg" },
-  { id: 22, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112559/COVER_kthlvp.jpg" },
-  { id: 23, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112560/Untitled-1_n7wjuj.jpg" },
-  { id: 24, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1778942499/Test_Work_ugxojk.jpg" },
-  { id: 25, title: "Creative Layout", category: "Design", thumbnail: "https://res.cloudinary.com/dydo0ncjr/image/upload/v1776112561/Untitled-2_hjj2m4.jpg" },
+  { id: 1, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779475040/horizontal-banner-mockup-nailed-to-a-wooden-wall-a10523_gkh285.png" },
+  { id: 2, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474784/logo-mockup-featuring-a-postcard-over-a-piece-of-fabric-1673-el_tpbdh7.png" },
+  { id: 3, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474782/vertical-banner-mockup-outside-a-school-gymnasium-a10573_supn3f.png" },
+  { id: 4, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474782/vertical-banner-mockup-outside-a-school-gymnasium-a10573_supn3f.png" },
+  { id: 5, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455315/2_wa7mpp.jpg" },
+  { id: 6, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455692/Full_Box_Mockup_V4_cl3ckf.png" },
+  { id: 7, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455979/The_Sport_Of_Fitness_v1gdxe.png" },
+  { id: 8, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455418/CERTIFICATE_MOCKUP_4_f1ih06.jpg" },
+  { id: 9, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455391/CERTIFICATE_MOCKUP_xlir24.jpg" },
+  { id: 10, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455877/Deadly_XII_s1obye.jpg" },
+  { id: 11, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456323/CRICKET_TEAM_SQUAD-01_t6zdnx.jpg" },
+  { id: 12, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455500/Untitled-1_ggqwgq.jpg" },
+  { id: 13, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455457/frozen_fruits_2_efdgiy.jpg" },
+  { id: 14, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779454931/Content_15_qolphb.png" },
+  { id: 15, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779454915/International_Tea_Day_vzzugk.png" },
+  { id: 16, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455874/A4-01_mewtqy.jpg" },
+  { id: 17, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455920/Track_Design-01_mm6cus.jpg" },
+  { id: 18, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455918/Poster_Design_pxvjen.jpg" },
+  { id: 19, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456133/2_ijrsdi.jpg" },
+  { id: 20, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474781/mockup-of-a-man-holding-a-kit-bag-23236_m4peu3.png" },
+  { id: 21, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474780/laptop-cover-mockup-featuring-a-computer-on-a-table-2289-el1_p7qqxa.png" },
+  { id: 22, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474780/minimalistic-mockup-featuring-two-business-cards-with-rounded-corners-977-el_qkat8t.png" },
+  { id: 23, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474780/mockup-of-a-vinyl-with-an-album-release-themed-message-m6034_rwa722.png" },
+  { id: 24, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779474780/business-card-maker-for-architects-with-solid-frames-a316a_x1ravf.png" },
+  { id: 25, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456671/._p1ivdy.jpg" },
+  { id: 26, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456440/Content_12_djfrcb.png" },
+  { id: 27, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456669/..........................._lfm9p3.jpg" },
+  { id: 28, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456481/Content_13_h3unzm.png" },
+  { id: 29, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456478/O3_fhygu8.png" },
+  { id: 30, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779456383/BillBoard_mvwogh.png" },
+  { id: 31, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455016/Demo_qsnypu.jpg" },
+  { id: 32, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779454949/mockup-with-a-button-on-a-red-gym-bag-a14329_ovjhuz.png" },
+  { id: 33, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455019/Reza_1_uoo5ol.jpg" },
+  { id: 34, category: "Design", thumbnail: "https://res.cloudinary.com/dbqg0h1aj/image/upload/v1779455181/Basket_Ball_mj8gxl.jpg" }
 ];

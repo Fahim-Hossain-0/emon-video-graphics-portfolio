@@ -14,7 +14,8 @@ import {
   Layers,
   Award,
   ChevronsLeftRightEllipsis,
-  Palette
+  Palette,
+  Facebook
 } from "lucide-react";
 import {
   FaLinkedinIn,
@@ -34,30 +35,30 @@ const AboutSection = () => {
 
 const socialLinks = [
   {
-    icon: <FaLinkedinIn size={14} />,
-    label: "LinkedIn",
-    url: "#",
-  },
-  {
     icon: <FaUpwork size={14} />,
     label: "Upwork",
-    url: "#",
+    url: "https://www.upwork.com/freelancers/~01715ef7cf234d750f?mp_source=share",
+  },
+  {
+    icon: <FaLinkedinIn size={14} />,
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/mrvisualvibes",
   },
   {
     icon: <FaBehance size={14} />,
     label: "Behance",
-    url: "#",
+    url: "https://www.behance.net/mrvisualvibes", 
+  },
+  {
+    icon: <Facebook size={14} />,
+    label: "facebook",
+    url: "https://www.facebook.com/mrvisualvibes",
   },
   {
     icon: <FaInstagram size={14} />,
     label: "Instagram",
-    url: "#",
-  },
-  {
-    icon: <Mail size={14} />,
-    label: "Email",
-    url: "mailto:hello@mustafizur.com",
-  },
+    url: "https://www.instagram.com/mdmustafijurr4",
+  }
 ];
 
   return (
@@ -79,7 +80,7 @@ const socialLinks = [
               <div className="identity-name mono uppercase tracking-widest "> 
                 <span className="text-sm ">CREATIVE PROFILE: </span> 
                 <br />
-                <span className="text-accent-red">Mustafizur Rahman</span>
+                <span className="text-accent-red">Mostafijur Rahman</span>
                 </div>
             </div>
             <div className="scanner-frame-profile aspect-[4/5] relative">
@@ -106,7 +107,7 @@ const socialLinks = [
               <div className="flex items-center gap-2 mb-1">
                 <span className="id-label uppercase text-[10px] text-[#666]">Experience</span>
               </div>
-              <span className="text-white"><span className="text-accent-red playfair font-semibold">5+</span> Years</span>
+              <span className="text-white"><span className="text-accent-red playfair font-semibold text-lg">5+</span> Years</span>
             </div>
             <div className="p-3 bg-[#0a0a0a] border border-[#222] group hover:border-accent-red transition-colors">
               <div className="flex items-center gap-2 mb-1">
@@ -189,7 +190,7 @@ const socialLinks = [
                     <div className="history-header">
                       <span className="history-date text-accent-red font-bold text-2xl">{stat.num}</span>
                     </div>
-                    <div className="text-gray-400 text-xs mono uppercase tracking-tight">{stat.label}</div>
+                    <div className="text-gray-400 text-xs mono uppercase tracking-tight lato">{stat.label}</div>
                   </div>
                 ))}
               </div>

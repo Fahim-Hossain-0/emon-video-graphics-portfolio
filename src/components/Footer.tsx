@@ -58,14 +58,14 @@ export default function Footer() {
         </motion.h1>
 
         <motion.a
-          href="mailto:killianherzer@gmail.com"
+          href="mailto:mdmustafijurr4@gmail.com"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
           className="text-red-500 tracking-[0.2em] uppercase text-sm mb-12 hover:opacity-70 transition"
         >
-          killianherzer@gmail.com
+          mdmustafijurr4@gmail.com
         </motion.a>
 
         {/* Contact Button */}
