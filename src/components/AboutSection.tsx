@@ -155,8 +155,8 @@ const socialLinks = [
         >
           <div className="analysis-header flex items-center gap-3">
             <Terminal size={14} className="text-accent-red" />
-            <span className="text-accent-red mono uppercase">{" >> "}PSYCH_REPORT_ANALYSIS</span>
-            <span className="opacity-40 mono uppercase ml-auto">TS: {new Date().toLocaleDateString()}</span>
+            <span className="text-accent-red mono uppercase opacity-60">{" >> "}PSYCH_REPORT_ANALYSIS</span>
+            <span className="opacity-80 mono uppercase ml-auto text-accent-red">Date: {new Date().toLocaleDateString()}</span>
           </div>
 
           <div className="psych-report">

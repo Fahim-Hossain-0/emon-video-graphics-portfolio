@@ -5,6 +5,29 @@
 
 import { motion } from "framer-motion";
 
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/mrvisualvibes",
+  },
+  {
+    name: "Upwork",
+    url: "https://www.upwork.com/freelancers/~01715ef7cf234d750f?mp_source=share",
+  },
+  {
+    name: "Behance",
+    url: "https://www.behance.net/mrvisualvibes",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/mrvisualvibes",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/mdmustafijurr4",
+  },
+];
+
 export default function Footer() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-[#e0e0e0] flex flex-col items-center justify-center px-4 py-16">
@@ -23,12 +46,12 @@ export default function Footer() {
       </div>
 
       {/* Top Right */}
-      <div className="absolute top-6 right-6 z-10 text-right flex flex-col gap-1 text-[10px] tracking-[0.3em] uppercase">
+      {/* <div className="absolute top-6 right-6 z-10 text-right flex flex-col gap-1 text-[10px] tracking-[0.3em] uppercase">
         <span className="text-gray-500">20:11:29:78</span>
         <span className="text-gray-600">ISO 800</span>
 
         
-      </div>
+      </div> */}
 
       {/* Diagonal Light */}
       {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -88,18 +111,18 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="flex flex-wrap justify-center gap-6 mt-24 text-sm tracking-[0.2em] uppercase">
-          {["Github", "LinkedIn", "Upwork", "Behance", "Instagram"].map(
-            (item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-[#ff2a2a] transform relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#ff2a2a] after:transition-transform after:duration-300 hover:after:scale-x-100"
-              >
-                [ {item} ]
-              </a>
-            )
-          )}
-        </div>
+  {socialLinks.map((item) => (
+    <a
+      key={item.name}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#ff2a2a] relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#ff2a2a] after:transition-transform after:duration-300 hover:after:scale-x-100"
+    >
+      [ {item.name} ]
+    </a>
+  ))}
+</div>
       </section>
 
       {/* Footer */}
@@ -107,11 +130,11 @@ export default function Footer() {
         
         {/* Left Side */}
         <div className="flex flex-col items-center justify-center gap-1 text-center lg:text-left">
-          <span className="text-[9px] tracking-[0.3em] uppercase text-gray-500">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-gray-600">
             Secure Line Established
           </span>
 
-          <span className="text-[9px] tracking-[0.3em] uppercase text-gray-700">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-gray-400">
             © 2026 Fahim Hossain
           </span>
         </div>
