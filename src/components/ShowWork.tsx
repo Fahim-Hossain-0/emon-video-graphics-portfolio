@@ -35,12 +35,12 @@ function getAspectRatio(item: any) {
 function getEmbedUrl(url: string) {
   if (url.includes("shorts")) {
     const id = url.split("/shorts/")[1]?.split("?")[0];
-    return `https://www.youtube.com/embed/${id}?autoplay=1`;
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
   }
 
   if (url.includes("youtu.be")) {
     const id = url.split("youtu.be/")[1]?.split("?")[0];
-    return `https://www.youtube.com/embed/${id}?autoplay=1`;
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
   }
 
   return url;
