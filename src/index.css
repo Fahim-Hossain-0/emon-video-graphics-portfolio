@@ -77,6 +77,20 @@ html {
 .uppercase { text-transform: uppercase; }
 
 /* ---- Hero background (match killianherzer.com noise + tone) ---- */
+.hero-title {
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    text-align: center;
+  }
+
+  .hero-label {
+    font-size: 12px;
+  }
+}
+
 .hero {
   background: #050505;
   isolation: isolate;

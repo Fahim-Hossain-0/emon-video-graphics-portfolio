@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="flex items-center gap-3 mb-8">
           <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
 
-          <span className="text-[10px] uppercase tracking-[0.3em] text-red-500">
+          <span className="text-[12px] uppercase tracking-[0.3em] text-red-500">
             CHANNEL OPEN
           </span>
         </div>
@@ -86,7 +86,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-red-500 tracking-[0.2em] uppercase text-sm mb-12 hover:opacity-70 transition"
+          className="text-red-500 tracking-[0.2em]  text-base mb-12 hover:opacity-70 transition"
         >
           mdmustafijurr4@gmail.com
         </motion.a>
@@ -94,7 +94,9 @@ export default function Footer() {
         {/* Contact Button */}
         <div className="relative group">
           <a
-            href="#"
+            href="https://api.whatsapp.com/send?phone=8801855519222"
+  target="_blank"
+  rel="noopener noreferrer"
             className="border border-slate-600 hover:border-accent-red px-12 py-6 uppercase font-medium text-lg lato transition duration-500"
           >
             Initiate Contact

@@ -120,18 +120,18 @@ function Hero({ startReveal }: { startReveal: boolean }) {
     <section className={`hero ${isReady ? 'is-ready' : ''}`} ref={heroRef}>
       <div className="spotlight-mask" ref={spotlightRef} />
       <div className="scanner-line" />
-      <div className="hero-content">
+      <div className="hero-content px-4 sm:px-6 md:px-8">
         <div className="hero-label mono uppercase py-1 px-3">
           Evidence of High-End Design & Motion
         </div>
-        <h1 className="hero-title playfair text-[170px] md:text-[185px] font-extrabold leading-[150px] tracking-[-6px]">
+        <h1 className="hero-title playfair text-[48px] sm:text-[70px] md:text-[110px] lg:text-[150px] xl:text-[200px] font-extrabold leading-[0.9] tracking-[-2px] md:tracking-[-4px] xl:tracking-[-6px]">
           <span className="hero-layer-back">Mostafijur</span>
           <br />
           <span className="hero-layer-front">RAHMAN</span>
         </h1>
-        <div className="hero-subtitle">
-          Video Editor · Motion Designer · Visual Storyteller
-        </div>
+        <div className="hero-subtitle text-sm sm:text-base md:text-lg lg:text-xl text-center px-4">
+  Video Editor · Motion Designer · Visual Storyteller
+</div>
       </div>
     </section>
   );
